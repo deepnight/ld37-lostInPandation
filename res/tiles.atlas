@@ -1,0 +1,881 @@
+
+tiles.png
+size: 460,208
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bar
+  rotate: false
+  xy: 232, 61
+  size: 23, 3
+  orig: 23, 3
+  offset: 0, 0
+  index: -1
+barBg
+  rotate: false
+  xy: 294, 55
+  size: 29, 9
+  orig: 29, 9
+  offset: 0, 0
+  index: -1
+barricade
+  rotate: false
+  xy: 350, 141
+  size: 16, 20
+  orig: 20, 20
+  offset: 2, 0
+  index: -1
+battery0
+  rotate: false
+  xy: 338, 161
+  size: 10, 14
+  orig: 20, 20
+  offset: 5, 0
+  index: -1
+batteryMaker0
+  rotate: false
+  xy: 213, 90
+  size: 16, 31
+  orig: 20, 31
+  offset: 0, 0
+  index: -1
+cable
+  rotate: false
+  xy: 1, 1
+  size: 229, 63
+  orig: 229, 75
+  offset: 0, 12
+  index: -1
+cableCar
+  rotate: false
+  xy: 130, 90
+  size: 50, 47
+  orig: 50, 47
+  offset: 0, 0
+  index: -1
+camp0
+  rotate: false
+  xy: 423, 29
+  size: 30, 10
+  orig: 30, 20
+  offset: 0, 0
+  index: -1
+campShine0
+  rotate: false
+  xy: 182, 136
+  size: 30, 10
+  orig: 30, 20
+  offset: 0, 0
+  index: -1
+empty
+  rotate: false
+  xy: 397, 184
+  size: 3, 3
+  orig: 1, 1
+  offset: 0, -2
+  index: -1
+eyes
+  rotate: false
+  xy: 286, 202
+  size: 6, 5
+  orig: 6, 5
+  offset: 0, 0
+  index: -1
+focus0
+  rotate: false
+  xy: 417, 71
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+food
+  rotate: false
+  xy: 368, 142
+  size: 16, 18
+  orig: 30, 20
+  offset: 7, 0
+  index: -1
+foodTable
+  rotate: false
+  xy: 439, 106
+  size: 18, 15
+  orig: 20, 20
+  offset: 1, 0
+  index: -1
+fseed
+  rotate: false
+  xy: 249, 157
+  size: 17, 16
+  orig: 20, 20
+  offset: 1, 0
+  index: -1
+fxDirt0
+  rotate: false
+  xy: 321, 137
+  size: 8, 9
+  orig: 8, 9
+  offset: 0, 0
+  index: -1
+fxDirt1
+  rotate: false
+  xy: 211, 198
+  size: 9, 9
+  orig: 9, 9
+  offset: 0, 0
+  index: -1
+fxDirt2
+  rotate: false
+  xy: 387, 184
+  size: 8, 9
+  orig: 9, 9
+  offset: 1, 0
+  index: -1
+fxDirt3
+  rotate: false
+  xy: 222, 198
+  size: 9, 9
+  orig: 9, 9
+  offset: 0, 0
+  index: -1
+fxDot0
+  rotate: false
+  xy: 179, 139
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+fxFire0
+  rotate: false
+  xy: 179, 177
+  size: 14, 3
+  orig: 14, 3
+  offset: 0, 0
+  index: -1
+fxFire1
+  rotate: false
+  xy: 257, 61
+  size: 14, 3
+  orig: 14, 3
+  offset: 0, 0
+  index: -1
+fxSmoke0
+  rotate: false
+  xy: 1, 66
+  size: 127, 133
+  orig: 134, 134
+  offset: 6, 1
+  index: -1
+fxSnow0
+  rotate: false
+  xy: 179, 139
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+fxSnowFast0
+  rotate: false
+  xy: 263, 58
+  size: 20, 1
+  orig: 20, 1
+  offset: 0, 0
+  index: -1
+generator0
+  rotate: false
+  xy: 231, 90
+  size: 15, 30
+  orig: 20, 30
+  offset: 0, 0
+  index: -1
+grass
+  rotate: false
+  xy: 298, 134
+  size: 21, 12
+  orig: 30, 20
+  offset: 4, 0
+  index: -1
+gseed
+  rotate: false
+  xy: 386, 142
+  size: 17, 16
+  orig: 20, 20
+  offset: 1, 0
+  index: -1
+heatLabel
+  rotate: false
+  xy: 347, 196
+  size: 17, 7
+  orig: 17, 7
+  offset: 0, 0
+  index: -1
+heroCheck0
+  rotate: false
+  xy: 233, 136
+  size: 14, 25
+  orig: 20, 30
+  offset: 3, 0
+  index: -1
+heroCheck1
+  rotate: false
+  xy: 234, 175
+  size: 15, 25
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroCheck2
+  rotate: false
+  xy: 369, 117
+  size: 15, 23
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroCheck3
+  rotate: false
+  xy: 268, 184
+  size: 16, 23
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroCheck4
+  rotate: false
+  xy: 304, 174
+  size: 16, 23
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroCheck5
+  rotate: false
+  xy: 320, 148
+  size: 16, 23
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroClimb0
+  rotate: false
+  xy: 417, 41
+  size: 16, 28
+  orig: 20, 30
+  offset: 3, 0
+  index: -1
+heroClimb1
+  rotate: false
+  xy: 435, 41
+  size: 15, 28
+  orig: 20, 30
+  offset: 3, 0
+  index: -1
+heroClimb2
+  rotate: false
+  xy: 179, 148
+  size: 15, 27
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroClimbIdle0
+  rotate: false
+  xy: 386, 116
+  size: 16, 24
+  orig: 20, 30
+  offset: 3, 0
+  index: -1
+heroDeath0-35
+  rotate: false
+  xy: 286, 150
+  size: 14, 24
+  orig: 20, 30
+  offset: 6, 0
+  index: -1
+heroDeath0
+  rotate: false
+  xy: 269, 90
+  size: 19, 25
+  orig: 20, 30
+  offset: 1, 0
+  index: -1
+heroDeath1
+  rotate: false
+  xy: 286, 150
+  size: 14, 24
+  orig: 20, 30
+  offset: 6, 0
+  index: -1
+heroDeath2-37
+  rotate: false
+  xy: 213, 123
+  size: 28, 11
+  orig: 34, 30
+  offset: 3, 0
+  index: -1
+heroDeath2
+  rotate: false
+  xy: 374, 90
+  size: 19, 24
+  orig: 29, 30
+  offset: 10, 0
+  index: -1
+heroDeath3
+  rotate: false
+  xy: 419, 93
+  size: 18, 21
+  orig: 29, 30
+  offset: 11, 0
+  index: -1
+heroDeath4
+  rotate: false
+  xy: 395, 93
+  size: 22, 21
+  orig: 50, 30
+  offset: 22, 0
+  index: -1
+heroDeath5
+  rotate: false
+  xy: 326, 117
+  size: 22, 18
+  orig: 50, 30
+  offset: 22, 0
+  index: -1
+heroDeath6
+  rotate: false
+  xy: 294, 35
+  size: 28, 18
+  orig: 50, 30
+  offset: 22, 0
+  index: -1
+heroDeath7
+  rotate: false
+  xy: 387, 50
+  size: 28, 13
+  orig: 50, 30
+  offset: 22, 0
+  index: -1
+heroDeath8
+  rotate: false
+  xy: 213, 123
+  size: 28, 11
+  orig: 50, 30
+  offset: 22, 0
+  index: -1
+heroHeat0
+  rotate: false
+  xy: 404, 116
+  size: 16, 24
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroHeat1
+  rotate: false
+  xy: 302, 148
+  size: 16, 24
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroHeat2
+  rotate: false
+  xy: 404, 116
+  size: 16, 24
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroHeat3
+  rotate: false
+  xy: 286, 176
+  size: 16, 24
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroIdle0
+  rotate: false
+  xy: 422, 116
+  size: 15, 25
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroIdle1
+  rotate: false
+  xy: 267, 130
+  size: 15, 25
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroIdle2
+  rotate: false
+  xy: 251, 175
+  size: 15, 25
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroJumpDown0
+  rotate: false
+  xy: 248, 90
+  size: 19, 26
+  orig: 20, 30
+  offset: 0, 1
+  index: -1
+heroJumpUp0
+  rotate: false
+  xy: 397, 65
+  size: 18, 26
+  orig: 20, 30
+  offset: 0, 0
+  index: -1
+heroLand0
+  rotate: false
+  xy: 439, 71
+  size: 20, 21
+  orig: 20, 30
+  offset: 0, 0
+  index: -1
+heroScratch0
+  rotate: false
+  xy: 196, 148
+  size: 16, 25
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroScratch1
+  rotate: false
+  xy: 192, 182
+  size: 17, 25
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroScratch2
+  rotate: false
+  xy: 249, 130
+  size: 16, 25
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroScratch3
+  rotate: false
+  xy: 268, 157
+  size: 16, 25
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroUse0
+  rotate: false
+  xy: 350, 117
+  size: 17, 22
+  orig: 20, 30
+  offset: 1, 0
+  index: -1
+heroUse1
+  rotate: false
+  xy: 439, 123
+  size: 17, 22
+  orig: 20, 30
+  offset: 1, 0
+  index: -1
+heroWalk0
+  rotate: false
+  xy: 290, 90
+  size: 19, 25
+  orig: 20, 30
+  offset: 0, 0
+  index: -1
+heroWalk1
+  rotate: false
+  xy: 311, 90
+  size: 19, 25
+  orig: 20, 30
+  offset: 1, 0
+  index: -1
+heroWalk2
+  rotate: false
+  xy: 332, 90
+  size: 19, 25
+  orig: 20, 30
+  offset: 1, 0
+  index: -1
+heroWalk3
+  rotate: false
+  xy: 214, 136
+  size: 17, 25
+  orig: 20, 30
+  offset: 2, 0
+  index: -1
+heroWalk4
+  rotate: false
+  xy: 353, 90
+  size: 19, 25
+  orig: 20, 30
+  offset: 1, 0
+  index: -1
+jauge0
+  rotate: false
+  xy: 350, 163
+  size: 17, 12
+  orig: 17, 12
+  offset: 0, 0
+  index: -1
+jauge1
+  rotate: false
+  xy: 369, 162
+  size: 17, 12
+  orig: 17, 12
+  offset: 0, 0
+  index: -1
+jauge2
+  rotate: false
+  xy: 371, 195
+  size: 17, 12
+  orig: 17, 12
+  offset: 0, 0
+  index: -1
+jauge3
+  rotate: false
+  xy: 440, 165
+  size: 17, 12
+  orig: 17, 12
+  offset: 0, 0
+  index: -1
+jauge4
+  rotate: false
+  xy: 397, 184
+  size: 3, 3
+  orig: 15, 10
+  offset: 0, 7
+  index: -1
+ladder0
+  rotate: false
+  xy: 452, 59
+  size: 7, 10
+  orig: 10, 10
+  offset: 2, 0
+  index: -1
+ladder1
+  rotate: false
+  xy: 432, 181
+  size: 7, 10
+  orig: 10, 10
+  offset: 2, 0
+  index: -1
+ladderB0
+  rotate: false
+  xy: 419, 197
+  size: 7, 10
+  orig: 10, 10
+  offset: 2, 0
+  index: -1
+ladderB1
+  rotate: false
+  xy: 450, 179
+  size: 7, 10
+  orig: 10, 10
+  offset: 2, 0
+  index: -1
+ladderBottomRing0
+  rotate: false
+  xy: 335, 197
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+ladderBottomRingB0
+  rotate: false
+  xy: 420, 181
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+ladderBottomRingEmpty0
+  rotate: false
+  xy: 304, 199
+  size: 10, 8
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+ladderEnd0
+  rotate: false
+  xy: 428, 197
+  size: 7, 10
+  orig: 10, 10
+  offset: 2, 0
+  index: -1
+ladderEndB0
+  rotate: false
+  xy: 437, 197
+  size: 7, 10
+  orig: 10, 10
+  offset: 2, 0
+  index: -1
+ladderRing0
+  rotate: false
+  xy: 402, 164
+  size: 17, 14
+  orig: 20, 14
+  offset: 3, 0
+  index: -1
+ladderRingEmpty0
+  rotate: false
+  xy: 421, 165
+  size: 17, 14
+  orig: 20, 14
+  offset: 3, 0
+  index: -1
+lifeLabel
+  rotate: false
+  xy: 402, 180
+  size: 16, 7
+  orig: 17, 7
+  offset: 1, 0
+  index: -1
+light
+  rotate: false
+  xy: 130, 139
+  size: 47, 41
+  orig: 48, 42
+  offset: 1, 0
+  index: -1
+logo
+  rotate: false
+  xy: 130, 66
+  size: 265, 22
+  orig: 265, 24
+  offset: 0, 1
+  index: -1
+logoSub
+  rotate: false
+  xy: 232, 1
+  size: 189, 32
+  orig: 191, 37
+  offset: 1, 5
+  index: -1
+plank
+  rotate: false
+  xy: 298, 117
+  size: 26, 15
+  orig: 26, 20
+  offset: 0, 0
+  index: -1
+potEmpty
+  rotate: false
+  xy: 232, 35
+  size: 29, 24
+  orig: 30, 26
+  offset: 1, 0
+  index: -1
+potFood0
+  rotate: false
+  xy: 325, 53
+  size: 29, 11
+  orig: 30, 26
+  offset: 1, 0
+  index: -1
+potFood1
+  rotate: false
+  xy: 386, 35
+  size: 29, 13
+  orig: 30, 26
+  offset: 1, 0
+  index: -1
+potFood2
+  rotate: false
+  xy: 182, 90
+  size: 29, 23
+  orig: 30, 26
+  offset: 1, 0
+  index: -1
+potFood3
+  rotate: false
+  xy: 423, 1
+  size: 29, 26
+  orig: 30, 26
+  offset: 1, 0
+  index: -1
+potGrass0
+  rotate: false
+  xy: 356, 53
+  size: 29, 11
+  orig: 30, 26
+  offset: 1, 0
+  index: -1
+potGrass1
+  rotate: false
+  xy: 324, 35
+  size: 29, 16
+  orig: 30, 26
+  offset: 1, 0
+  index: -1
+potGrass2
+  rotate: false
+  xy: 182, 115
+  size: 29, 19
+  orig: 30, 26
+  offset: 1, 0
+  index: -1
+potGrass3
+  rotate: false
+  xy: 130, 182
+  size: 29, 25
+  orig: 30, 26
+  offset: 1, 0
+  index: -1
+potSpawn
+  rotate: false
+  xy: 269, 117
+  size: 27, 7
+  orig: 27, 7
+  offset: 0, 0
+  index: -1
+potWood0
+  rotate: false
+  xy: 214, 163
+  size: 29, 10
+  orig: 30, 26
+  offset: 1, 0
+  index: -1
+potWood1
+  rotate: false
+  xy: 355, 35
+  size: 29, 16
+  orig: 30, 26
+  offset: 1, 0
+  index: -1
+potWood2
+  rotate: false
+  xy: 263, 35
+  size: 29, 21
+  orig: 30, 26
+  offset: 1, 0
+  index: -1
+potWood3
+  rotate: false
+  xy: 161, 182
+  size: 29, 25
+  orig: 30, 26
+  offset: 1, 0
+  index: -1
+rope0
+  rotate: false
+  xy: 249, 118
+  size: 18, 10
+  orig: 20, 20
+  offset: 1, 0
+  index: -1
+tcore0
+  rotate: false
+  xy: 337, 177
+  size: 16, 17
+  orig: 30, 30
+  offset: 7, 7
+  index: -1
+tentacle0
+  rotate: false
+  xy: 284, 126
+  size: 12, 22
+  orig: 17, 22
+  offset: 2, 0
+  index: -1
+tentacle1
+  rotate: false
+  xy: 355, 177
+  size: 14, 17
+  orig: 17, 22
+  offset: 2, 0
+  index: -1
+tentacle2
+  rotate: false
+  xy: 422, 143
+  size: 14, 20
+  orig: 17, 22
+  offset: 2, 0
+  index: -1
+tentacle3
+  rotate: false
+  xy: 388, 160
+  size: 12, 22
+  orig: 17, 22
+  offset: 3, 0
+  index: -1
+tentacle4
+  rotate: false
+  xy: 338, 137
+  size: 10, 22
+  orig: 17, 22
+  offset: 4, 0
+  index: -1
+tentacle5
+  rotate: false
+  xy: 405, 142
+  size: 15, 20
+  orig: 17, 22
+  offset: 0, 0
+  index: -1
+tentacle6
+  rotate: false
+  xy: 371, 176
+  size: 14, 17
+  orig: 17, 22
+  offset: 1, 0
+  index: -1
+tentacle7
+  rotate: false
+  xy: 405, 142
+  size: 15, 20
+  orig: 17, 22
+  offset: 0, 0
+  index: -1
+tentacle8
+  rotate: false
+  xy: 322, 173
+  size: 13, 22
+  orig: 17, 22
+  offset: 1, 0
+  index: -1
+thermo0
+  rotate: false
+  xy: 397, 189
+  size: 9, 18
+  orig: 10, 20
+  offset: 1, 1
+  index: -1
+thermo1
+  rotate: false
+  xy: 408, 189
+  size: 9, 18
+  orig: 10, 20
+  offset: 1, 1
+  index: -1
+thermo2
+  rotate: false
+  xy: 452, 41
+  size: 7, 16
+  orig: 10, 20
+  offset: 2, 2
+  index: -1
+thermo3
+  rotate: false
+  xy: 441, 179
+  size: 7, 16
+  orig: 10, 20
+  offset: 2, 2
+  index: -1
+warning
+  rotate: false
+  xy: 322, 197
+  size: 11, 10
+  orig: 11, 10
+  offset: 0, 0
+  index: -1
+wheel
+  rotate: false
+  xy: 211, 175
+  size: 21, 21
+  orig: 23, 23
+  offset: 1, 1
+  index: -1
+wood0
+  rotate: false
+  xy: 439, 94
+  size: 20, 10
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+wseed
+  rotate: false
+  xy: 438, 147
+  size: 17, 16
+  orig: 20, 20
+  offset: 1, 0
+  index: -1

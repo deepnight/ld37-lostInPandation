@@ -1,0 +1,229 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#: src/en/Hero.hx:376
+msgid "You froze to death."
+msgstr ""
+
+#: src/en/Hero.hx:381
+msgid "You are a panda, not a bird."
+msgstr ""
+
+#: src/en/i/BatteryMaker.hx:19
+msgid "Crafted a battery"
+msgstr ""
+
+#: src/en/i/BatteryMaker.hx:24
+msgid "The main generator must be charged if I want to produce a BATTERY here."
+msgstr ""
+
+#: src/en/i/BatteryMaker.hx:29
+msgid "A battery distributor"
+msgstr ""
+
+#: src/en/i/BatterySlot.hx:57
+msgid "I don't need that anymore!"
+msgstr ""
+
+#: src/en/i/BatterySlot.hx:59
+msgid "Under operation, please wait."
+msgstr ""
+
+#: src/en/i/BatterySlot.hx:64
+msgid "One more to go!!"
+msgstr ""
+
+#: src/en/i/BatterySlot.hx:70
+msgid "A BATTERY would fit here..."
+msgstr ""
+
+#: src/en/i/BatterySlot.hx:75
+msgid "I need to power this in order to escape!"
+msgstr ""
+
+#: src/en/i/Camp.hx:31
+msgid "The fire is at max capacity."
+msgstr ""
+
+#: src/en/i/Camp.hx:38
+msgid "I need some combustible."
+msgstr ""
+
+#: src/en/i/Camp.hx:44
+msgid "A fire camp"
+msgstr ""
+
+#: src/en/i/Computer.hx:21
+msgid "This is where you create your Ludum Dare game."
+msgstr ""
+
+#: src/en/i/Computer.hx:30
+msgid "Generator is empty"
+msgstr ""
+
+#: src/en/i/FoodTable.hx:23
+msgid "I don't have food."
+msgstr ""
+
+#: src/en/i/FoodTable.hx:28
+msgid "A table, a plate and a fork, for me to eat something."
+msgstr ""
+
+#: src/en/i/Generator.hx:33
+msgid "Already full"
+msgstr ""
+
+#: src/en/i/Generator.hx:38 src/en/i/Generator.hx:43
+msgid "Generator capacity: +::n::%"
+msgstr ""
+
+#: src/en/i/Generator.hx:46
+msgid "[Please insert FRUIT or WOOD to refill the generator]"
+msgstr ""
+
+#: src/en/i/Generator.hx:61
+msgid "The main generator"
+msgstr ""
+
+#: src/en/i/Item.hx:31
+msgid "Long grass."
+msgstr ""
+
+#: src/en/i/Item.hx:32
+msgid "A long and solid rope."
+msgstr ""
+
+#: src/en/i/Item.hx:33
+msgid "Multi purpose bamboo!"
+msgstr ""
+
+#: src/en/i/Item.hx:34
+msgid "Oily pear"
+msgstr ""
+
+#: src/en/i/Item.hx:35
+msgid "Bamboo seeds"
+msgstr ""
+
+#: src/en/i/Item.hx:36
+msgid "Old wood planks"
+msgstr ""
+
+#: src/en/i/Item.hx:37
+msgid "Insanely large battery"
+msgstr ""
+
+#: src/en/i/Item.hx:38
+msgid "[Unknown item]"
+msgstr ""
+
+#: src/en/i/Ladder.hx:99
+msgid "Ladder broke"
+msgstr ""
+
+#: src/en/i/Ladder.hx:114
+msgid "I need bamboo here."
+msgstr ""
+
+#: src/en/i/LockedPot.hx:34
+msgid "The main generator must be charged if I want to unlock a new PLANT POT here."
+msgstr ""
+
+#: src/en/i/LockedPot.hx:39
+msgid "Locked plant pot"
+msgstr ""
+
+#: src/en/i/Message.hx:26
+msgid "Press SPACE to read"
+msgstr ""
+
+#: src/en/i/MobKiller.hx:20
+msgid "The main generator must be charged if I want to kill any menace."
+msgstr ""
+
+#: src/en/i/MobKiller.hx:22
+msgid "There is no enemy around."
+msgstr ""
+
+#: src/en/i/MobKiller.hx:35
+msgid "Menace clearer"
+msgstr ""
+
+#: src/en/i/Pot.hx:27
+msgid "Planted: BAMBOO"
+msgstr ""
+
+#: src/en/i/Pot.hx:31
+msgid "Planted: OILY PEAR"
+msgstr ""
+
+#: src/en/i/Pot.hx:37
+msgid "I can plant something here."
+msgstr ""
+
+#: src/en/i/Pot.hx:42
+msgid "Picked up too early"
+msgstr ""
+
+#: src/en/i/Pot.hx:63
+msgid "An empty pot..."
+msgstr ""
+
+#: src/en/i/Pot.hx:65
+msgid "A bamboo pot. I love bamboo."
+msgstr ""
+
+#: src/en/i/RopeCrafter.hx:19
+msgid "Crafted a rope"
+msgstr ""
+
+#: src/en/i/RopeCrafter.hx:25
+msgid "I can make a ROPE from bamboo here."
+msgstr ""
+
+#: src/en/i/RopeCrafter.hx:30
+msgid "A sewing workshop to turn bamboo into ropes."
+msgstr ""
+
+#: src/en/i/Thermometer.hx:36
+msgid "Outside temperature: ::t::°C"
+msgstr ""
+
+#: src/en/Mob.hx:188
+msgid "Eaten by a... what the fuck was that??"
+msgstr ""
+
+#: src/Game.hx:133
+msgid ""
+"You are a iPanda, a next-gen personal assistant, trapped in an apartment "
+"after some sort of apocalypse... Survive to the frost and find a way to escape!"
+msgstr ""
+
+#: src/Game.hx:165
+msgid "Thank you for playing!"
+msgstr ""
+
+#: src/Game.hx:167
+msgid "And sorry for the shitty ending, not enough time ^_^"
+msgstr ""
+
+#: src/Game.hx:170
+msgid "A game by Sébastien Bénard"
+msgstr ""
+
+#: src/Game.hx:172
+msgid "[ deepnight.net ]"
+msgstr ""
+
+#: src/Game.hx:175
+msgid "Music by Volkor X"
+msgstr ""
+
+#: src/Game.hx:177
+msgid "[ volkorx.bandcamp.com ]"
+msgstr ""
+
+
