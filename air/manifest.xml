@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://ns.adobe.com/air/application/20.0">
+  <id>mt.deepnight</id>
+  <versionNumber>0.1</versionNumber>
+  <filename>Lost in Pandation</filename>
+  <versionLabel>0.1</versionLabel>
+  <supportedProfiles>desktop extendedDesktop</supportedProfiles>
+  <customUpdateUI>false</customUpdateUI>
+  <allowBrowserInvocation>false</allowBrowserInvocation>
+
+  <initialWindow>
+    <title>Lost in Pandation</title>
+    <content>data/client.swf</content>
+    <fullScreen>true</fullScreen>
+    <visible>true</visible>
+	<maximizable>false</maximizable>
+	<resizable>false</resizable>
+    <renderMode>gpu</renderMode>
+    <!-- cpu -->
+    <systemChrome>standard</systemChrome>
+  </initialWindow>
+
+</application>
