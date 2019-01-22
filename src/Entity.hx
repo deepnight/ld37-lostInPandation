@@ -69,11 +69,11 @@ class Entity {
 		descTf = new h2d.Text(Assets.font);
 		Game.ME.scroller.add(descTf, Const.DP_UI);
 		if( cy<=20 ) {
-			descTf.setPos(26*Const.GRID, 13*Const.GRID);
+			descTf.setPosition(26*Const.GRID, 13*Const.GRID);
 			descTf.maxWidth = (45-26)*Const.GRID;
 		}
 		else {
-			descTf.setPos(20*Const.GRID, 25*Const.GRID);
+			descTf.setPosition(20*Const.GRID, 25*Const.GRID);
 			descTf.maxWidth = (45-20)*Const.GRID;
 		}
 		descTf.textAlign = sprX<descTf.x+descTf.maxWidth*0.4 ? Left : sprX>descTf.x+descTf.maxWidth*0.6 ? Right : Center;
@@ -180,7 +180,7 @@ class Entity {
 		focus.scaleX += (1-focus.scaleX)*0.3;
 		focus.scaleY += (1-focus.scaleY)*0.3;
 		//focus.rotation*=0.65;
-		focus.setPos(sprX, sprY-Const.GRID*0.5);
+		focus.setPosition(sprX, sprY-Const.GRID*0.5);
 		focus.alpha = 1 - MLib.fabs( 0.7*Math.cos(Game.ME.ftime*0.2) );
 	}
 

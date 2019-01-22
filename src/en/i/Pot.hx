@@ -25,13 +25,13 @@ class Pot extends en.Interactive {
 			if( by.use("wood") ) {
 				plant("wood");
 				pop(Lang.t._("Planted: BAMBOO"), 0x5EB04F);
-				Assets.SBANK.pick0(1);
+				//Assets.SBANK.pick0(1);
 				Tutorial.ME.nextIfAt(1);
 			}
 			else if( by.use("food") ) {
 				plant("food");
 				pop(Lang.t._("Planted: OILY PEAR"), 0x5EB04F);
-				Assets.SBANK.pick0(1);
+				//Assets.SBANK.pick0(1);
 				Tutorial.ME.nextIfAt(4);
 			}
 			else
@@ -41,7 +41,7 @@ class Pot extends en.Interactive {
 			if( size<1 ) {
 				by.pickItem(seed);
 				pop(Lang.t._("Picked up too early"), 0xFF0000);
-				Assets.SBANK.pickBad0(1);
+				//Assets.SBANK.pickBad0(1);
 			}
 			else {
 				if( output=="food" )

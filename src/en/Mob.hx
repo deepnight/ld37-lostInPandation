@@ -80,14 +80,14 @@ class Mob extends Entity {
 
 		var i = 0;
 		for(s in cores) {
-			s.s.setPos(sprX+s.ox, sprY+s.oy-6*ss);
+			s.s.setPosition(sprX+s.ox, sprY+s.oy-6*ss);
 			s.s.rotation = ang + s.a;
 			s.s.setScale(ss);
 			i++;
 		}
 		var i = 0;
 		for(s in tentacles) {
-			s.s.setPos(sprX+s.ox, sprY+s.oy-7*ss);
+			s.s.setPosition(sprX+s.ox, sprY+s.oy-7*ss);
 			s.s.rotation = ang + s.a + 0.3 * Math.sin(s.off + game.ftime*0.02 * s.spd);
 			var a = s.s.rotation;
 			var d = mt.deepnight.Lib.angularDistanceRad(3.14,a);
@@ -96,7 +96,7 @@ class Mob extends Entity {
 			i++;
 		}
 
-		eyes.setPos(sprX+dir*2, sprY-10*ss);
+		eyes.setPosition(sprX+dir*2, sprY-10*ss);
 		eyes.setScale(ss);
 		eyes.scaleX *= dir;
 	}
@@ -184,7 +184,7 @@ class Mob extends Entity {
 				//hero.cd.setS("mobCold", 2);
 
 			if( distCase(hero)<=0.8 && hero.climbTarget==null ) {
-				Assets.SBANK.death0(1);
+				//Assets.SBANK.death0(1);
 				hero.die(Lang.t._("Eaten by a... SOMETHING"));
 			}
 		}

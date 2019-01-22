@@ -13,7 +13,7 @@ class Bar extends mt.Process {
 		createRoot(p);
 		bg = Assets.tiles.h_get("barBg", root);
 		bar = Assets.tiles.h_get("bar", root);
-		bar.setPos(3,3);
+		bar.setPosition(3,3);
 		warn = Assets.tiles.h_get("warning", root);
 		warn.x = bg.tile.width;
 		warn.visible = false;

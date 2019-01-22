@@ -33,7 +33,7 @@ class Tutorial extends mt.Process {
 	}
 
 
-	var curMsg : h2d.Sprite;
+	var curMsg : h2d.Object;
 	function hide() {
 		if( curMsg!=null ) {
 			var s = curMsg;
@@ -45,7 +45,7 @@ class Tutorial extends mt.Process {
 	function display(m:mt.data.GetText.LocaleString) {
 		hide();
 		var c = 0x2E2D48;
-		var wr = new h2d.Sprite();
+		var wr = new h2d.Object();
 		curMsg = wr;
 		var bg = new h2d.Graphics(wr);
 
@@ -53,7 +53,7 @@ class Tutorial extends mt.Process {
 		var py = 2;
 		var tf = new h2d.Text(Assets.font, wr);
 		tf.text = Lang.t._("SURVIVAL TIP:")+" "+m;
-		tf.setPos(px,py);
+		tf.setPosition(px,py);
 		tf.textColor = 0xFFA600;
 		//tf.maxWidth = 440-260;
 
@@ -70,7 +70,7 @@ class Tutorial extends mt.Process {
 		bg.beginFill(0xffffff,0.08);
 		bg.drawRect(0,0,w,1);
 
-		wr.setPos(Std.int(330-w*0.5), 290);
+		wr.setPosition(Std.int(330-w*0.5), 290);
 
 		tw.createS(wr.y, wr.y+10>wr.y, 1);
 		tw.createS(wr.alpha, 0>1, 1);

@@ -91,11 +91,11 @@ class Hero extends Entity {
 		var e = new en.i.Item(cx,cy, item);
 		e.yr = 0.5;
 		item = null;
-		Assets.SBANK.drop0(0.5);
+		//Assets.SBANK.drop0(0.5);
 	}
 
 	public function pickItem(id:String) {
-		Assets.SBANK.pick1(1);
+		//Assets.SBANK.pick1(1);
 		dropItem();
 		backIcon.set(id);
 		item = id;
@@ -117,7 +117,7 @@ class Hero extends Entity {
 
 		backIcon.visible = item!=null;
 		if( item!=null ) {
-			backIcon.setPos(sprX-dir*1, spr.y-12);
+			backIcon.setPosition(sprX-dir*1, spr.y-12);
 			backIcon.rotation = -dir*switch( item ) {
 				case "battery", "food" : backIcon.x-=dir*4; backIcon.y+=5; -0.2;
 				default : 1.4;
@@ -146,10 +146,10 @@ class Hero extends Entity {
 
 	override function onLand(ch) {
 		super.onLand(ch);
-		if( ch>=3 )
-			Assets.SBANK.land1(0.2);
-		else
-			Assets.SBANK.land0(0.4);
+		//if( ch>=3 )
+			//Assets.SBANK.land1(0.2);
+		//else
+			//Assets.SBANK.land0(0.4);
 		if( ch>=3 ) {
 			dx *= 0.2;
 			lockControlS(0.2);
@@ -341,7 +341,7 @@ class Hero extends Entity {
 					cd.setS("jumpPow", 0.2);
 					dy = -0.35;
 					dx*=1.2;
-					Assets.SBANK.jump0(0.4);
+					//Assets.SBANK.jump0(0.4);
 				}
 				if( cd.has("jumpPow") )
 					dy -= 0.13;
@@ -382,14 +382,14 @@ class Hero extends Entity {
 			heat = MLib.fclamp(heat,0,1);
 			ui.heat.set(heat);
 			if( heat<=0 ) {
-				Assets.SBANK.death1(1);
+				//Assets.SBANK.death1(1);
 				die(Lang.t._("You froze to death."));
 			}
 		}
 
 		// Death
 		if( cy>=lMap.hei+2 ) {
-			Assets.SBANK.death0(1);
+			//Assets.SBANK.death0(1);
 			die( Lang.t._("You are a panda, not a bird.") );
 		}
 
@@ -407,12 +407,12 @@ class Hero extends Entity {
 			fx.flashBang(0xFF0000,0.2,0.3);
 
 		if( !Console.ME.isActive() && controller.isKeyboardPressed(hxd.Key.M) ) {
-			if( mt.flash.Sfx.toggleMuteChannel(1) ) {
-				mt.flash.Sfx.muteChannel(0);
+			if( mt.deepnight.Sfx.toggleMuteGroup(1) ) {
+				mt.deepnight.Sfx.muteGroup(0);
 				pop(Lang.t._("Music ON"), 0xFFFF80);
 			}
 			else {
-				mt.flash.Sfx.unmuteChannel(0);
+				mt.deepnight.Sfx.unmuteGroup(0);
 				pop(Lang.t._("Music OFF"), 0xFF4A2B);
 			}
 		}

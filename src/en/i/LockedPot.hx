@@ -42,7 +42,7 @@ class LockedPot extends en.Interactive {
 
 	override public function postUpdate() {
 		super.postUpdate();
-		pot.setPos(sprX, sprY-26);
+		pot.setPosition(sprX, sprY-26);
 	}
 
 	override public function update() {

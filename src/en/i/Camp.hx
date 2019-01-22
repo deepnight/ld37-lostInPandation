@@ -35,7 +35,7 @@ class Camp extends en.Interactive {
 		}
 		else if( by.useAny(["wood","plank"]) ) {
 			power++;
-			Assets.SBANK.burn0(0.2);
+			//Assets.SBANK.burn0(0.2);
 			cd.setS("decay", getDecayDelay());
 			Tutorial.ME.nextIfAt(2);
 		}
@@ -57,7 +57,7 @@ class Camp extends en.Interactive {
 		super.postUpdate();
 		if( power>0 ) {
 			fx.camp(sprX, sprY, power);
-			shine.setPos(sprX, sprY);
+			shine.setPosition(sprX, sprY);
 			shine.visible = true;
 			shine.alpha = 0.7 + 0.3* Math.cos(Game.ME.ftime*0.2) + rnd(0,0.1,true);
 			//spr.x +=rnd(0,1,true);

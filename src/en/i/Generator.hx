@@ -37,7 +37,7 @@ class Generator extends en.Interactive {
 		//}
 		else if( by.use("food") ) {
 			charge += 2;
-			Assets.SBANK.generator0(1);
+			//Assets.SBANK.generator0(1);
 			game.beginRealGame();
 			showCap();
 		}
@@ -46,7 +46,7 @@ class Generator extends en.Interactive {
 		}
 		else if( by.useAny(["wood","plank"]) ) {
 			charge++;
-			Assets.SBANK.generator0(1);
+			//Assets.SBANK.generator0(1);
 			game.beginRealGame();
 			showCap();
 			by.say(Lang.t._("It's a better idea to use OILY PEARS here..."));

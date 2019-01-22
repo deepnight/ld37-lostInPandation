@@ -19,7 +19,7 @@ class BatterySlot extends en.Interactive {
 	var running = false;
 	var progress : Float;
 	var tp : Float;
-	var engine : mt.flash.Sfx;
+	//var engine : mt.flash.Sfx;
 
 	public function new(x,y) {
 		super(x,y);
@@ -35,7 +35,7 @@ class BatterySlot extends en.Interactive {
 		tp = 0;
 		spr.set(Assets.tiles, "empty");
 
-		engine = Assets.SBANK.engine0();
+		//engine = //Assets.SBANK.engine0();
 
 		bat = Assets.tiles.h_get("battery");
 		game.scroller.add(bat, Const.DP_MAIN_BG);
@@ -79,9 +79,9 @@ class BatterySlot extends en.Interactive {
 		if( by.use("battery") ) {
 			count++;
 
-			engine.playLoop(99999, 0);
-			engine.setPanning(0.7);
-			engine.fade(0.5, 300);
+			//engine.playLoop(99999, 0);
+			//engine.setPanning(0.7);
+			//engine.fade(0.5, 300);
 			if( count==max-1 )
 				by.say(Lang.t._("One more to go!!"));
 			running = true;
@@ -99,11 +99,11 @@ class BatterySlot extends en.Interactive {
 	override public function postUpdate() {
 		super.postUpdate();
 		bat.visible = running;
-		bat.setPos(sprX-1, sprY-2);
+		bat.setPosition(sprX-1, sprY-2);
 		bat.colorMatrix = mt.deepnight.Color.getColorizeMatrixH2d(0xFFAC00, 0.5+0.5*Math.cos(game.ftime*0.55));
 
-		cable.setPos(514,189);
-		wheel.setPos(514,189);
+		cable.setPosition(514,189);
+		wheel.setPosition(514,189);
 		cable.scaleX = 1 + Math.sin(game.ftime*0.020)*0.015;
 		//cable.scaleY = 1 + Math.cos(game.ftime*0.030)*0.030;
 		if( cd.has("running") ) {
@@ -130,7 +130,7 @@ class BatterySlot extends en.Interactive {
 
 		if( running && progress>=tp ) {
 			running = false;
-			engine.fade(0, 1200);
+			//engine.fade(0, 1200);
 			cd.unset("advancing");
 			if( count>=max )
 				game.end();

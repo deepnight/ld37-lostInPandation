@@ -72,7 +72,7 @@ class Ladder extends en.Interactive {
 			parts.push(s);
 			Game.ME.scroller.add(s, Const.DP_MAIN_FRONT);
 			s.setCenterRatio(0.5,1);
-			s.setPos(sprX, sprY-i*Const.GRID);
+			s.setPosition(sprX, sprY-i*Const.GRID);
 		}
 	}
 

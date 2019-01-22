@@ -1,4 +1,5 @@
-import mt.flash.Sfx;
+//import mt.flash.Sfx;
+import mt.deepnight.Sfx;
 
 class Assets {
 	public static var SBANK = Sfx.importDirectory("sfx");
@@ -19,8 +20,10 @@ class Assets {
 		tiles.generateAnim("heroWalk", "0(1), 1(2), 2(1), 3(1), 4(1)");
 		tiles.generateAnim("heroDeath", "0(2), 1(2), 2(1), 3(2), 4(1), 5(2), 6(1), 7(1), 8(2)");
 
-		Sfx.setChannelVolume(0,1);
-		Sfx.setChannelVolume(1,0.5);
+		Sfx.setGroupVolume(0, 1.0);
+		Sfx.setGroupVolume(1, 0.5);
+		// Sfx.setChannelVolume(0,1);
+		// Sfx.setChannelVolume(1,0.5);
 		//Sfx.muteChannel(0); // NO SOUND
 	}
 }

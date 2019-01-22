@@ -207,13 +207,13 @@ class Fx extends mt.Process {
 	}
 
 	function _mobDeath(p:HParticle) {
-		if( p.data[1]!=null ) return;
+		if( Math.isNaN(p.data1) ) return;
 
-		if( p.data[0]==null ) p.data[0] = rnd(10,20);
+		if( Math.isNaN(p.data0) ) p.data0 = rnd(10,20);
 		else {
-			p.data[0]--;
-			if( p.data[0]<=0 ) {
-				p.data[1] = 1;
+			p.data0--;
+			if( p.data0<=0 ) {
+				p.data1 = 1;
 				p.gy = rnd(0.1,0.3);
 				p.dr = rnd(0.05,0.10);
 			}
@@ -224,8 +224,8 @@ class Fx extends mt.Process {
 		var t = h2d.Tile.fromColor(c,1,1,alpha);
 		var bmp = new h2d.Bitmap(t);
 		Game.ME.root.addChild(bmp);
-		bmp.scaleX = Main.ME.buffer.width;
-		bmp.scaleY = Main.ME.buffer.height;
+		bmp.scaleX = w()/Const.SCALE;
+		bmp.scaleY = h()/Const.SCALE;
 		bmp.blendMode = Add;
 
 		Game.ME.tw.createS(bmp.alpha, 0>1, fadeInS).end( function () {

@@ -19,7 +19,7 @@ class GeneratorJauge extends en.Interactive {
 	override public function postUpdate() {
 		super.postUpdate();
 
-		spr.setPos(344,155);
+		spr.setPosition(344,155);
 
 		if( gen.hasCharge() ) {
 			spr.scaleX = 1+MLib.fabs( Math.cos(game.ftime*0.4)*0.06 );

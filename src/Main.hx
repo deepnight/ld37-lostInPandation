@@ -7,15 +7,15 @@ import hxd.Key;
 class Main extends mt.Process {
 	public static var ME : Main;
 	public var controller : mt.heaps.Controller;
-	public var buffer : h2d.CachedBitmap;
 
 	public function new(s:h2d.Scene) {
 		super();
 		ME = this;
 
-		buffer = new h2d.CachedBitmap(s, 320,240);
-		buffer.setScale(Const.SCALE);
+		createRoot(s);
+		root.setScale(Const.SCALE);
 
+		hxd.Res.initEmbed({compressSounds:true});
 		Lang.init("en");
 		Assets.init();
 		Data.load( hxd.Res.load("data.cdb").toText() );
@@ -29,24 +29,27 @@ class Main extends mt.Process {
 		controller.bind(B, Key.DOWN, Key.S, Key.ESCAPE);
 		controller.bind(SELECT, Key.R);
 
-		Assets.SBANK.music().playLoopOnChannel(1);
-		#if debug
-		mt.flash.Sfx.muteChannel(1);
-		#else
-		mt.flash.Sfx.muteChannel(0);
-		#end
+		var music = new mt.deepnight.Sfx( hxd.Res.music );
+		music.playOnGroup(1,true);
+		// Assets.SBANK.music().playOnGroup(1,true);
+		//Assets.SBANK.music().playLoopOnChannel(1);
+		//#if debug
+		//mt.flash.Sfx.muteChannel(1);
+		//#else
+		//mt.flash.Sfx.muteChannel(0);
+		//#end
 
-		if( mt.deepnight.Lib.ludumProtection(false,true) ) {
+		//if( mt.deepnight.Lib.ludumProtection(false,true) ) {
 			#if !debug
 			engine.fullScreen = true;
 			#end
 			new Game(true);
-		}
-		else {
-			var t = new h2d.Text(Assets.font, s);
-			t.text = "Couldn't load data. Visit www.deepnight.net.";
-			t.scale(2);
-		}
+		//}
+		//else {
+			//var t = new h2d.Text(Assets.font, s);
+			//t.text = "Couldn't load data. Visit www.deepnight.net.";
+			//t.scale(2);
+		//}
 	}
 
 	override public function onResize() {
@@ -55,14 +58,14 @@ class Main extends mt.Process {
 		#if debug
 		//Const.SCALE = 2;
 		#end
-		buffer.setScale(Const.SCALE);
-		buffer.width = MLib.ceil(w()/Const.SCALE);
-		buffer.height = MLib.ceil(h()/Const.SCALE);
+		root.setScale(Const.SCALE);
+		// buffer.width = MLib.ceil(w()/Const.SCALE);
+		// buffer.height = MLib.ceil(h()/Const.SCALE);
 	}
 
 	override public function update() {
 		mt.heaps.Controller.beforeUpdate();
 		super.update();
-		mt.flash.Sfx.update();
+		//mt.flash.Sfx.update();
 	}
 }

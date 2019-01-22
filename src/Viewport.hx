@@ -29,8 +29,8 @@ class Viewport extends mt.Process {
 		y = e.sprY;
 	}
 
-	inline function get_wid() return Main.ME.buffer.width;
-	inline function get_hei() return Main.ME.buffer.height;
+	inline function get_wid() return w()/Const.SCALE;
+	inline function get_hei() return h()/Const.SCALE;
 	//inline function get_wid() return w()/Const.SCALE;
 	//inline function get_hei() return h()/Const.SCALE;
 
@@ -58,7 +58,7 @@ class Viewport extends mt.Process {
 		x = MLib.fclamp(x, wid*0.5, Game.ME.lMap.lData.width*Const.GRID-wid*0.5);
 		y = MLib.fclamp(y, hei*0.5, Game.ME.lMap.lData.height*Const.GRID-hei*0.5);
 
-		Game.ME.scroller.setPos( -(x-wid*0.5), -(y-hei*0.5) );
-		//Game.ME.scroller.setPos( Std.int( -(x-wid*0.5) ), Std.int( -(y-hei*0.5) ) );
+		Game.ME.scroller.setPosition( -(x-wid*0.5), -(y-hei*0.5) );
+		//Game.ME.scroller.setPosition( Std.int( -(x-wid*0.5) ), Std.int( -(y-hei*0.5) ) );
 	}
 }

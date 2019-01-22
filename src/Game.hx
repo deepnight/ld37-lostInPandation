@@ -31,7 +31,7 @@ class Game extends mt.Process {
 		storm = false;
 
 		cm = new mt.deepnight.Cinematic(Const.FPS);
-		createRoot(Main.ME.buffer);
+		createRoot(Main.ME.root);
 		scroller = new h2d.Layers(root);
 
 		lMap = new LevelMap( Data.level.get(TheRoom) );
@@ -84,19 +84,19 @@ class Game extends mt.Process {
 		#end
 		if( withIntro ) {
 			mt.Process.resizeAll();
-			var w = Main.ME.buffer.width;
-			var h = Main.ME.buffer.height;
+			var w = this.w()/Const.SCALE;
+			var h = this.h()/Const.SCALE;
 			var mask = new h2d.Bitmap( h2d.Tile.fromColor(0x151220), root );
 			mask.scaleX = w;
 			mask.scaleY = h;
 			mask.alpha = 1;
 
 			var logo = Assets.tiles.h_get("logo",0, 0.5,0.5,root);
-			logo.setPos(w*0.5, h*0.5);
+			logo.setPosition(w*0.5, h*0.5);
 			logo.alpha = 0;
 
 			var sub = Assets.tiles.h_get("logoSub",0, 0.5,0.5,root);
-			sub.setPos(w*0.5, h*0.8);
+			sub.setPosition(w*0.5, h*0.8);
 			sub.alpha = 0;
 
 			hero.lockControlS(999);
@@ -140,8 +140,8 @@ class Game extends mt.Process {
 
 	public function end() {
 		clearMessages();
-		var w = Main.ME.buffer.width;
-		var h = Main.ME.buffer.height;
+		var w = this.w()/Const.SCALE;
+		var h = this.h()/Const.SCALE;
 
 		var mask2 = new h2d.Bitmap( h2d.Tile.fromColor(0x0A0E1F), root );
 		mask2.scaleX = w;
@@ -149,7 +149,7 @@ class Game extends mt.Process {
 		mask2.visible = false;
 
 		var logo = Assets.tiles.h_get("logo",0, 0.5,0.5,root);
-		logo.setPos(w*0.5, h*0.25);
+		logo.setPosition(w*0.5, h*0.25);
 		logo.alpha = 0;
 
 		var mask = new h2d.Bitmap( h2d.Tile.fromColor(0xFFFFFF), root );
@@ -194,7 +194,8 @@ class Game extends mt.Process {
 	function endMsg(txt:String, ?c=0x9CA8E0) {
 		var tf = new h2d.Text(Assets.font, root);
 		tf.text = txt;
-		tf.setPos(Main.ME.buffer.width*0.5 - tf.textWidth*0.5, Main.ME.buffer.height*0.4 + msgCpt*12);
+
+		tf.setPosition(this.w()/Const.SCALE*0.5 - tf.textWidth*0.5, this.h()/Const.SCALE*0.4 + msgCpt*12);
 		tw.createMs(tf.alpha, 0>1, 1000);
 		tf.textColor = c;
 		msgCpt++;
@@ -290,13 +291,13 @@ class Game extends mt.Process {
 
 		var cx = hero.cx;
 		var cy = hero.cy;
-		var wr = new h2d.Sprite();
+		var wr = new h2d.Object();
 		var bg = new h2d.Graphics(wr);
 
 		var p = 5;
 		var tf = new h2d.Text(Assets.font, wr);
 		tf.text = m;
-		tf.setPos(p,p);
+		tf.setPosition(p,p);
 		tf.textColor = 0xffffff;
 		tf.maxWidth = Const.GRID*18;
 
@@ -315,11 +316,11 @@ class Game extends mt.Process {
 
 		if( cy<=21 || cy>=34 ) {
 			// Above
-			wr.setPos((cx+0.5)*Const.GRID - w*0.5, cy*Const.GRID - h - Const.GRID*4);
+			wr.setPosition((cx+0.5)*Const.GRID - w*0.5, cy*Const.GRID - h - Const.GRID*4);
 		}
 		else {
 			// Below
-			wr.setPos((cx+0.5)*Const.GRID - w*0.5, (cy+1.5)*Const.GRID);
+			wr.setPosition((cx+0.5)*Const.GRID - w*0.5, (cy+1.5)*Const.GRID);
 		}
 		wr.x = Std.int(wr.x);
 		wr.y = Std.int(wr.y);
@@ -387,8 +388,8 @@ class Game extends mt.Process {
 	}
 
 	public function getMouse() {
-		var gx = hxd.Stage.getInstance().mouseX;
-		var gy = hxd.Stage.getInstance().mouseY;
+		var gx = hxd.Window.getInstance().mouseX;
+		var gy = hxd.Window.getInstance().mouseY;
 		var sx = Std.int( (gx/Const.SCALE-scroller.x) );
 		var sy = Std.int( (gy/Const.SCALE-scroller.y) );
 		return {

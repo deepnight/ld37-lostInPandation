@@ -1,7 +1,6 @@
 class Boot extends hxd.App {
 	// Boot
 	static function main() {
-		hxd.Res.initEmbed({compressSounds:true});
 		new Boot();
 	}
 
@@ -19,17 +18,17 @@ class Boot extends hxd.App {
 		mt.Process.resizeAll();
 	}
 
-	override function update(dt:Float) {
-		super.update(dt);
+	override function update(deltaTime:Float) {
+		super.update(deltaTime);
 
 		#if debug
 		var n = 1;
-		if( Game.ME!=null && @:privateAccess Game.ME.hero.controller.yDown() )
+		if( Game.ME!=null && Game.ME.hero!=null && @:privateAccess Game.ME.hero.controller.yDown() )
 			n+=6;
 		while( n-->0 )
-			mt.Process.updateAll(dt);
+			mt.Process.updateAll(hxd.Timer.tmod);
 		#else
-		mt.Process.updateAll(dt);
+		mt.Process.updateAll(hxd.Timer.tmod);
 		#end
 	}
 }
