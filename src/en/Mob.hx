@@ -155,7 +155,7 @@ class Mob extends Entity {
 				cd.setS("moving", rnd(0.1,0.3));
 			}
 			if( cd.has("moving") )
-				dx += dir * rnd(0.02,0.05) * spd;
+				dx += dir * rnd(0.02,0.05) * spd * tmod;
 
 			if( dx!=0 ) {
 				var i = 0;
@@ -167,8 +167,8 @@ class Mob extends Entity {
 			}
 
 			if( !cd.has("iaLock") && nearEnd() ) {
-				dx*=0.2;
-				dy*=0.5;
+				dx*=Math.pow(0.2,tmod);
+				dy*=Math.pow(0.5,tmod);
 				if( !isAngry() ) {
 					dy = -0.3;
 					var d = -dir;
