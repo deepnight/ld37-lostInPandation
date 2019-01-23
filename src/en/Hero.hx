@@ -309,14 +309,14 @@ class Hero extends Entity {
 
 				if( controller.leftDown() ) {
 					dir = -1;
-					dx-=s;
+					dx-=s*tmod;
 				}
 				else if( controller.rightDown() ) {
 					dir = 1;
-					dx+=s;
+					dx+=s*tmod;
 				}
 				else
-					dx*=0.8;
+					dx*=Math.pow(0.8,tmod);
 
 				if( onGround && selection!=null && ( controller.xPressed() || controller.isKeyboardPressed(hxd.Key.UP) && selection.is(en.i.Ladder) ) ) {
 					if( selection.beginActivation(this) )
@@ -344,7 +344,7 @@ class Hero extends Entity {
 					//Assets.SBANK.jump0(0.4);
 				}
 				if( cd.has("jumpPow") )
-					dy -= 0.13;
+					dy -= 0.13*tmod;
 
 				if( controller.bPressed() && item!=null)
 					delayedAction(dropItem, 0.15);

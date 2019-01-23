@@ -18,6 +18,8 @@ class Entity {
 	public var dy : Float;
 	public var dir(default,set) : Int;
 
+	public var tmod(get,never) : Float; inline function get_tmod() return Game.ME.tmod;
+
 	public var sprX(get,never) : Float; inline function get_sprX() return Std.int((cx+xr)*Const.GRID);
 	public var sprY(get,never) : Float; inline function get_sprY() return Std.int((cy+yr)*Const.GRID);
 
@@ -190,28 +192,28 @@ class Entity {
 		var repel = 0.08;
 		var repelF = 0.6;
 		// X
-		xr+=dx;
+		xr+=dx*tmod;
 		if( xr>=0.9 && lMap.hasHardColl(cx+1,cy) ) { xr = 0.9; }
 		if( xr>0.8 && lMap.hasHardColl(cx+1,cy) ) {
-			dx*=repelF;
-			dx -= repel;
+			dx*=Math.pow(repelF,tmod);
+			dx -= repel*tmod;
 		}
 
 		if( xr<=0.1 && lMap.hasHardColl(cx-1,cy) ) { xr = 0.1; }
 		if( xr<0.2 && lMap.hasHardColl(cx-1,cy) ) {
-			dx*=repelF;
-			dx += repel;
+			dx*=Math.pow(repelF,tmod);
+			dx += repel*tmod;
 		}
 
 		while( xr>1 ) { xr--; cx++; }
 		while( xr<0 ) { xr++; cx--; }
-		dx*=frict;
-		if( MLib.fabs(dx)<=0.01 ) dx = 0;
+		dx*=Math.pow(frict,tmod);
+		if( MLib.fabs(dx)<=0.01*tmod ) dx = 0;
 
 		// Y
 		if( hasGravity && !onGround )
-			dy+=gravity;
-		yr+=dy;
+			dy+=gravity*tmod;
+		yr+=dy*tmod;
 		if( dy<=0 )
 			fallStartY = sprY;
 		if( yr>1 && lMap.hasAnyColl(cx,cy+1) ) {
@@ -221,14 +223,14 @@ class Entity {
 		}
 		if( yr<=0.6 && lMap.hasHardColl(cx,cy-1) ) { dy = 0; yr = 0.6; }
 		if( yr<0.2 && lMap.hasHardColl(cx,cy-1) ) {
-			dy*=repelF;
-			dy += repel;
+			dy*=Math.pow(repelF,tmod);
+			dy += repel*tmod;
 		}
 
 		while( yr>1 ) { yr--; cy++; }
 		while( yr<0 ) { yr++; cy--; }
-		dy*=frict;
-		if( MLib.fabs(dy)<=0.01 ) dy = 0;
+		dy*=Math.pow(frict,tmod);
+		if( MLib.fabs(dy)<=0.01*tmod ) dy = 0;
 
 		if( onGround )
 			lastStableY = cy;
