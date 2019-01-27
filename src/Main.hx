@@ -19,6 +19,7 @@ class Main extends mt.Process {
 		Lang.init("en");
 		Assets.init();
 		Data.load( hxd.Res.load("data.cdb").toText() );
+		new mt.deepnight.GameFocusHelper(s, Assets.font);
 		s.addChild( new Console() );
 
 		controller = new mt.heaps.Controller(s);
