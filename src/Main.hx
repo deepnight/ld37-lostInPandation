@@ -32,25 +32,13 @@ class Main extends mt.Process {
 
 		var music = new mt.deepnight.Sfx( hxd.Res.music );
 		music.playOnGroup(1,true);
-		// Assets.SBANK.music().playOnGroup(1,true);
-		//Assets.SBANK.music().playLoopOnChannel(1);
-		//#if debug
-		//mt.flash.Sfx.muteChannel(1);
-		//#else
-		//mt.flash.Sfx.muteChannel(0);
-		//#end
 
-		//if( mt.deepnight.Lib.ludumProtection(false,true) ) {
-			#if !debug
-			engine.fullScreen = true;
-			#end
+		#if !debug
+		engine.fullScreen = true;
+		#end
+		delayer.addF( function() {
 			new Game(true);
-		//}
-		//else {
-			//var t = new h2d.Text(Assets.font, s);
-			//t.text = "Couldn't load data. Visit www.deepnight.net.";
-			//t.scale(2);
-		//}
+		},1);
 	}
 
 	override public function onResize() {
