@@ -30,13 +30,13 @@ class Main extends mt.Process {
 		controller.bind(B, Key.DOWN, Key.S, Key.ESCAPE);
 		controller.bind(SELECT, Key.R);
 
-		var music = new mt.deepnight.Sfx( hxd.Res.music );
-		music.playOnGroup(1,true);
 
 		#if !debug
 		engine.fullScreen = true;
 		#end
 		delayer.addF( function() {
+			var music = new mt.deepnight.Sfx( hxd.Res.music );
+			music.playOnGroup(1,true);
 			new Game(true);
 		},1);
 	}
