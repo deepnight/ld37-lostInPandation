@@ -18,11 +18,11 @@ class Radio extends en.Interactive {
 
 		if( mt.deepnight.Sfx.toggleMuteGroup(1) ) {
 			mt.deepnight.Sfx.muteGroup(0);
-			pop(Lang.t._("Music ON"), 0xFFFF80);
+			pop(Lang.t._("Music OFF"), 0xFFFF80);
 		}
 		else {
 			mt.deepnight.Sfx.unmuteGroup(0);
-			pop(Lang.t._("Music OFF"), 0xFF4A2B);
+			pop(Lang.t._("Music ON"), 0xFF4A2B);
 		}
 
 		//if( mt.flash.Sfx.toggleMuteChannel(1) ) {
