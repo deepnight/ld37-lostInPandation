@@ -6,7 +6,7 @@
       {
         "text": "Make redist",
         "color": "lightgreen",
-        "command": "haxelib run redistHelper -p LostInPandation hl.hxml js.hxml flash.hxml",
+        "command": "haxelib run redistHelper -p LostInPandation",
         "alignment": "right",
         "skipTerminateQuickPick": false,
         "priority": 10
