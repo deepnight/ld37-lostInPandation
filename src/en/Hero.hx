@@ -139,7 +139,8 @@ class Hero extends Entity {
 			xr = 0.2;
 		yr = 1;
 		dx = 0;
-		dir = climbTarget.dir;
+		if( lMap.hasAnyColl(e.cx+dir,e.endY-1) || !lMap.hasAnyColl(e.cx+dir,e.endY) ) dir*=-1;
+		// dir = climbTarget.dir;
 		hasGravity = false;
 	}
 
@@ -200,7 +201,7 @@ class Hero extends Entity {
 	}
 
 
-	public function die(reason:mt.data.GetText.LocaleString) {
+	public function die(reason:mt.data.GetText.LocaleString, repop:Bool) {
 		if( cd.hasSetS("death", 9999) )
 			return;
 
@@ -291,7 +292,7 @@ class Hero extends Entity {
 				setPosCase(cx, climbTarget.endY-1);
 				xr = 0.5;
 				yr = 1;
-				dir = climbTarget.dir;
+				// dir = climbTarget.dir;
 				dx = dir*0.2;
 				dy = -0.5;
 				hasGravity = true;
@@ -304,7 +305,7 @@ class Hero extends Entity {
 		else {
 			if( !controlsLocked() ) {
 				// Controls
-				var s = 0.072 * ( spr.is("heroWalk",1) || spr.is("heroWalk",3) ? 0.75 : 1 ) * (isOutside() ? 0.4 : 1);
+				var s = 0.085 * ( spr.is("heroWalk",1) || spr.is("heroWalk",3) ? 0.75 : 1 ) * (isOutside() ? 0.6 : 1);
 				spr.anim.setGlobalSpeed( isOutside() ? 0.5 : 1 );
 
 				if( controller.leftDown() ) {
@@ -318,7 +319,7 @@ class Hero extends Entity {
 				else
 					dx*=Math.pow(0.8,tmod);
 
-				if( onGround && selection!=null && ( controller.xPressed() || controller.isKeyboardPressed(hxd.Key.UP) && selection.is(en.i.Ladder) ) ) {
+				if( onGround && selection!=null && ( controller.xPressed() || ( controller.isKeyboardPressed(hxd.Key.UP) || controller.lyValue()>=0.6 ) && selection.is(en.i.Ladder) ) ) {
 					if( selection.beginActivation(this) )
 						if( selection.activationDelay<=0 )
 							selection.activate(this);
@@ -338,8 +339,8 @@ class Hero extends Entity {
 
 				if( cd.has("onGroundRecent") && !controlsLocked() && controller.aPressed() ) {
 					// Jump start
-					cd.setS("jumpPow", 0.2);
-					dy = -0.35;
+					cd.setS("jumpPow", 0.1);
+					dy = -0.8;
 					dx*=1.2;
 					//Assets.SBANK.jump0(0.4);
 				}
@@ -383,14 +384,14 @@ class Hero extends Entity {
 			ui.heat.set(heat);
 			if( heat<=0 ) {
 				//Assets.SBANK.death1(1);
-				die(Lang.t._("You froze to death."));
+				die(Lang.t._("You froze to death."), false);
 			}
 		}
 
 		// Death
 		if( cy>=lMap.hei+2 ) {
 			//Assets.SBANK.death0(1);
-			die( Lang.t._("You are a panda, not a bird.") );
+			die( Lang.t._("You are a panda, not a bird."), true );
 		}
 
 		#if debug

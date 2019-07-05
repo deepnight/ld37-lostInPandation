@@ -185,7 +185,7 @@ class Mob extends Entity {
 
 			if( distCase(hero)<=0.8 && hero.climbTarget==null ) {
 				//Assets.SBANK.death0(1);
-				hero.die(Lang.t._("Eaten by a... SOMETHING"));
+				hero.die(Lang.t._("Eaten by a... SOMETHING"), true);
 			}
 		}
 	}

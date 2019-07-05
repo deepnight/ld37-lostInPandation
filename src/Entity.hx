@@ -24,7 +24,7 @@ class Entity {
 	public var sprY(get,never) : Float; inline function get_sprY() return Std.int((cy+yr)*Const.GRID);
 
 	public var frict : Float;
-	public var gravity = 0.09;
+	public var gravity = 0.11;
 	public var lastStableY : Int;
 	var hasGravity = true;
 
@@ -54,7 +54,7 @@ class Entity {
 		lastStableY = 0;
 		dx = dy = 0;
 		fallStartY = sprY;
-		frict = 0.8;
+		frict = 0.77;
 		dir = 1;
 		destroyed = false;
 		cd = new mt.Cooldown(Const.FPS);
