@@ -46,15 +46,6 @@
         "priority": 2
       },
       {
-        "text": "⛴ Build Flash",
-        "color": "cyan",
-        "commandType":"palette",
-        "command": "workbench.action.tasks.runTask|Flash release",
-        "alignment": "right",
-        "skipTerminateQuickPick": false,
-        "priority": 1
-      },
-      {
         "text": "(Run)",
         "color": "cyan",
         "command": "start bin/client.swf",
