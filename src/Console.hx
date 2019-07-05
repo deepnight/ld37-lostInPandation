@@ -11,7 +11,7 @@ class Console extends h2d.Console {
 
 		#if debug
 		addCommand("add", "Add item", [{ name:"i", t:AString }], function(i) {
-			Game.ME.hero.pickItem(i);
+			Game.ME.hero.pickItem(i, Game.ME.hero.cx, Game.ME.hero.cy);
 		});
 		addCommand("begin", "begin", [], function() {
 			Game.ME.beginRealGame();

@@ -20,7 +20,7 @@ class Item extends en.Interactive {
 
 	override public function activate(by:en.Hero) {
 		super.activate(by);
-		by.pickItem(id);
+		by.pickItem(id, cx, cy);
 		destroy();
 	}
 

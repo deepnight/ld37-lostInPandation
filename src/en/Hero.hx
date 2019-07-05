@@ -11,6 +11,7 @@ class Hero extends Entity {
 	var selection : Null<Interactive>;
 	var tf : h2d.Text;
 	var item : Null<String>;
+	var itemOrigin = { cx:0, cy: 0 }
 	public var climbTarget : Null<en.i.Ladder>;
 	public var dead = false;
 
@@ -84,21 +85,22 @@ class Hero extends Entity {
 		item = null;
 	}
 
-	public function dropItem() {
+	public function dropItem(?atOrigin=false) {
 		if( item==null )
 			return;
 
-		var e = new en.i.Item(cx,cy, item);
+		var e = new en.i.Item(atOrigin ? itemOrigin.cx : cx, atOrigin ? itemOrigin.cy : cy, item);
 		e.yr = 0.5;
 		item = null;
 		//Assets.SBANK.drop0(0.5);
 	}
 
-	public function pickItem(id:String) {
+	public function pickItem(id:String, atX:Int, atY:Int) {
 		//Assets.SBANK.pick1(1);
 		dropItem();
 		backIcon.set(id);
 		item = id;
+		itemOrigin = { cx:atX, cy:atY }
 	}
 
 
@@ -201,7 +203,7 @@ class Hero extends Entity {
 	}
 
 
-	public function die(reason:mt.data.GetText.LocaleString, repop:Bool) {
+	public function die(?reason:mt.data.GetText.LocaleString, gameOver:Bool) {
 		if( cd.hasSetS("death", 9999) )
 			return;
 
@@ -209,11 +211,26 @@ class Hero extends Entity {
 		lockControlS(999);
 		spr.anim.play("heroDeath").setSpeed(0.3).stopOnLastFrame();
 		fx.flashBang(0xFF0000,0.5,2);
-		game.message( reason, 0xFF0000, true );
-		//pop( Lang.t._("You died: ::reason::",{reason:reason}), 0xFF0000 );
-		game.delayer.addS(game.restart, 2.8);
+		if( reason!=null )
+			game.message( reason, 0xFF0000, true );
+
 		if( item!=null )
-			dropItem();
+			dropItem(true);
+
+		if( gameOver )
+			game.delayer.addS(game.restart, 2.8);
+		else {
+			game.delayer.addS(function() {
+				hero.setPosCase(game.camp.cx+1, game.camp.cy);
+				hero.dead = false;
+				unlockControls();
+				cd.unset("death");
+				spr.anim.stopWithStateAnims();
+				for(e in en.Mob.ALL)
+					e.kill();
+			}, 1.5);
+		}
+
 		if( selection!=null )
 			selection.onBlur();
 	}
@@ -348,7 +365,7 @@ class Hero extends Entity {
 					dy -= 0.13*tmod;
 
 				if( controller.bPressed() && item!=null)
-					delayedAction(dropItem, 0.15);
+					delayedAction(function() dropItem(), 0.15);
 			}
 		}
 
@@ -384,14 +401,14 @@ class Hero extends Entity {
 			ui.heat.set(heat);
 			if( heat<=0 ) {
 				//Assets.SBANK.death1(1);
-				die(Lang.t._("You froze to death."), false);
+				die(Lang.t._("You froze to death."), true);
 			}
 		}
 
 		// Death
 		if( cy>=lMap.hei+2 ) {
 			//Assets.SBANK.death0(1);
-			die( Lang.t._("You are a panda, not a bird."), true );
+			die(false);
 		}
 
 		#if debug

@@ -39,14 +39,14 @@ class Pot extends en.Interactive {
 		}
 		else {
 			if( size<1 ) {
-				by.pickItem(seed);
+				by.pickItem(seed, cx+1, cy);
 				pop(Lang.t._("Picked up too early"), 0xFF0000);
 				//Assets.SBANK.pickBad0(1);
 			}
 			else {
 				if( output=="food" )
 					game.beginRealGame();
-				by.pickItem(output);
+				by.pickItem(output, cx+1, cy);
 				var e = new en.i.Item(cx+1,cy,seed);
 				e.dx = 0.15;
 				e.dy = -0.7;
