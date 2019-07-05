@@ -212,7 +212,7 @@ class Hero extends Entity {
 		spr.anim.play("heroDeath").setSpeed(0.3).stopOnLastFrame();
 		fx.flashBang(0xFF0000,0.5,2);
 		if( reason!=null )
-			game.message( reason, 0xFF0000, true );
+			game.notify( reason, 0xFF0000 );
 
 		if( item!=null )
 			dropItem(true);

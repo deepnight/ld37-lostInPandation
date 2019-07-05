@@ -5,6 +5,7 @@ import mt.deepnight.Lib;
 
 class Game extends mt.Process {
 	public static var ME : Game;
+	var controller : ControllerAccess;
 	public var hero : en.Hero;
 	public var lMap : LevelMap;
 	public var scroller : h2d.Layers;
@@ -29,6 +30,8 @@ class Game extends mt.Process {
 		super(Main.ME);
 		ME = this;
 		storm = false;
+
+		controller = Main.ME.controller.createAccess("game");
 
 		cm = new mt.deepnight.Cinematic(Const.FPS);
 		createRoot(Main.ME.root);
@@ -339,6 +342,40 @@ class Game extends mt.Process {
 		}) );
 	}
 
+	public function notify(m:mt.data.GetText.LocaleString, ?c=0x234685) {
+		var wr = new h2d.Object();
+		var bg = new h2d.Graphics(wr);
+
+		var p = 5;
+		var tf = new h2d.Text(Assets.font, wr);
+		tf.text = m;
+		tf.setPosition(p,p);
+		tf.textColor = 0xffffff;
+		tf.maxWidth = Const.GRID*18;
+
+		var w = tf.textWidth+p*2;
+		var h = tf.textHeight+p*2;
+		bg.beginFill(mt.deepnight.Color.brightnessInt(c,-0.5));
+		bg.drawRect(-1,-1,w+2,1);
+		bg.drawRect(-1,h,w+2,1);
+		bg.drawRect(-1,-1,1,h+2);
+		bg.drawRect(w,-1,1,h+2);
+		bg.beginFill(c,0.92);
+		bg.drawRect(0,0,w,h);
+
+		bg.beginFill(mt.deepnight.Color.brightnessInt(c,0.1));
+		bg.drawRect(0,0,w,1);
+
+		wr.x = Std.int(this.w()/Const.SCALE*0.5 - w*0.5 );
+
+		tw.createS(wr.y, -50>10, 0.35);
+		tw.createS(wr.alpha, 0>1, 0.15);
+		root.add(wr, Const.DP_UI);
+		delayer.addS( function() {
+			tw.createS(wr.y, -50, 0.5).end( function() wr.remove() );
+		}, 3);
+	}
+
 
 	override public function onResize() {
 		super.onResize();
@@ -434,6 +471,15 @@ class Game extends mt.Process {
 
 		if( hero.cx<=46 )
 			ui.show();
+
+		#if hl
+		if( controller.isKeyboardPressed(Key.ESCAPE) ) {
+			if( !cd.hasSetS("quitConfirm", 3) )
+				notify(Lang.t._("Press ESCAPE again to exit."));
+			else
+				hxd.System.exit();
+		}
+		#end
 
 		//Assets.tiles.updateChildren(dt*2);
 		if( storm )
