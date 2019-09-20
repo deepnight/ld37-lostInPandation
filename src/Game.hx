@@ -1,9 +1,5 @@
-import mt.Process;
-import mt.MLib;
-import mt.heaps.slib.*;
-import mt.deepnight.Lib;
 
-class Game extends mt.Process {
+class Game extends dn.Process {
 	public static var ME : Game;
 	var controller : ControllerAccess;
 	public var hero : en.Hero;
@@ -22,7 +18,7 @@ class Game extends mt.Process {
 
 	public var debug : h2d.Text;
 	var mobSpawns : Array<{cx:Int, cy:Int}> = [];
-	public var cm : mt.deepnight.Cinematic;
+	public var cm : dn.Cinematic;
 
 	public var realGameStarted(get,never) : Bool;
 
@@ -33,7 +29,7 @@ class Game extends mt.Process {
 
 		controller = Main.ME.controller.createAccess("game");
 
-		cm = new mt.deepnight.Cinematic(Const.FPS);
+		cm = new dn.Cinematic(Const.FPS);
 		createRoot(Main.ME.root);
 		scroller = new h2d.Layers(root);
 
@@ -86,7 +82,7 @@ class Game extends mt.Process {
 		withIntro = false;
 		#end
 		if( withIntro ) {
-			mt.Process.resizeAll();
+			dn.Process.resizeAll();
 			var w = this.w()/Const.SCALE;
 			var h = this.h()/Const.SCALE;
 			var mask = new h2d.Bitmap( h2d.Tile.fromColor(0x151220), root );
@@ -227,7 +223,7 @@ class Game extends mt.Process {
 	public function startStorm() {
 		storm = true;
 		var ladders = en.Interactive.ALL.filter( function(e) return e.is(en.i.Ladder) && Std.instance(e,en.i.Ladder).active );
-		mt.deepnight.Lib.shuffleArray(ladders, Std.random);
+		dn.Lib.shuffleArray(ladders, Std.random);
 
 		var n = 1;
 		for(e in ladders) {
@@ -281,7 +277,7 @@ class Game extends mt.Process {
 		return true;
 	}
 
-	var messages : Array<mt.Process> = [];
+	var messages : Array<dn.Process> = [];
 	public var messageCount = 0;
 
 	public function clearMessages() {
@@ -289,7 +285,7 @@ class Game extends mt.Process {
 			p.destroy();
 	}
 
-	public function message(m:mt.data.GetText.LocaleString, ?c=0x132648, ?perma=false) {
+	public function message(m:LocaleString, ?c=0x132648, ?perma=false) {
 		clearMessages();
 
 		var cx = hero.cx;
@@ -306,7 +302,7 @@ class Game extends mt.Process {
 
 		var w = tf.textWidth+p*2;
 		var h = tf.textHeight+p*2;
-		bg.beginFill(mt.deepnight.Color.brightnessInt(c,-0.5));
+		bg.beginFill(dn.Color.brightnessInt(c,-0.5));
 		bg.drawRect(-1,-1,w+2,1);
 		bg.drawRect(-1,h,w+2,1);
 		bg.drawRect(-1,-1,1,h+2);
@@ -314,7 +310,7 @@ class Game extends mt.Process {
 		bg.beginFill(c,0.92);
 		bg.drawRect(0,0,w,h);
 
-		bg.beginFill(mt.deepnight.Color.brightnessInt(c,0.1));
+		bg.beginFill(dn.Color.brightnessInt(c,0.1));
 		bg.drawRect(0,0,w,1);
 
 		if( cy<=21 || cy>=34 ) {
@@ -333,7 +329,7 @@ class Game extends mt.Process {
 
 		messageCount++;
 		messages.push( createChildProcess( function(p) {
-			if( !perma && mt.deepnight.Lib.distance(hero.cx, hero.cy, cx,cy)>=3 )
+			if( !perma && dn.Lib.distance(hero.cx, hero.cy, cx,cy)>=3 )
 				p.destroy();
 		}, function(p) {
 			messages.remove(p);
@@ -342,7 +338,7 @@ class Game extends mt.Process {
 		}) );
 	}
 
-	public function notify(m:mt.data.GetText.LocaleString, ?c=0x234685) {
+	public function notify(m:LocaleString, ?c=0x234685) {
 		var wr = new h2d.Object();
 		var bg = new h2d.Graphics(wr);
 
@@ -355,7 +351,7 @@ class Game extends mt.Process {
 
 		var w = tf.textWidth+p*2;
 		var h = tf.textHeight+p*2;
-		bg.beginFill(mt.deepnight.Color.brightnessInt(c,-0.5));
+		bg.beginFill(dn.Color.brightnessInt(c,-0.5));
 		bg.drawRect(-1,-1,w+2,1);
 		bg.drawRect(-1,h,w+2,1);
 		bg.drawRect(-1,-1,1,h+2);
@@ -363,7 +359,7 @@ class Game extends mt.Process {
 		bg.beginFill(c,0.92);
 		bg.drawRect(0,0,w,h);
 
-		bg.beginFill(mt.deepnight.Color.brightnessInt(c,0.1));
+		bg.beginFill(dn.Color.brightnessInt(c,0.1));
 		bg.drawRect(0,0,w,1);
 
 		wr.x = Std.int(this.w()/Const.SCALE*0.5 - w*0.5 );
@@ -419,7 +415,7 @@ class Game extends mt.Process {
 		if( hero.bodyTemp>0 )
 			ice.alpha += (0-ice.alpha)*0.06;
 		else {
-			var ta = 0.3 + 0.6 * MLib.fclamp((1+MLib.fabs(hero.bodyTemp))/4, 0, 1);
+			var ta = 0.3 + 0.6 * M.fclamp((1+M.fabs(hero.bodyTemp))/4, 0, 1);
 			ice.alpha += (ta-ice.alpha)*0.09;
 		}
 	}

@@ -1,8 +1,3 @@
-import mt.Process;
-import mt.MLib;
-import mt.heaps.slib.*;
-import mt.deepnight.Lib;
-import mt.deepnight.Tweenie;
 
 class Entity {
 	static var UNIQ = 0;
@@ -29,7 +24,7 @@ class Entity {
 	var hasGravity = true;
 
 	public var spr : HSprite;
-	public var cd : mt.Cooldown;
+	public var cd : dn.Cooldown;
 	public var destroyed : Bool;
 	public var onGround(get,never) : Bool;
 	var fallStartY : Float;
@@ -41,7 +36,7 @@ class Entity {
 	var ui(get,never) : Ui; inline function get_ui() return Game.ME.ui;
 
 	var focus : HSprite;
-	//var desc : Null<mt.data.GetText.LocaleString>;
+	//var desc : Null<LocaleString>;
 	var descTf : h2d.Text;
 
 	private function new(x,y) {
@@ -57,7 +52,7 @@ class Entity {
 		frict = 0.77;
 		dir = 1;
 		destroyed = false;
-		cd = new mt.Cooldown(Const.FPS);
+		cd = new dn.Cooldown(Const.FPS);
 
 		spr = new HSprite(Assets.tiles);
 		Game.ME.scroller.add(spr, Const.DP_MAIN);
@@ -107,7 +102,7 @@ class Entity {
 		focus.visible = true;
 	}
 
-	public function showDesc(str:mt.data.GetText.LocaleString, ?c=0x7887C2) {
+	public function showDesc(str:LocaleString, ?c=0x7887C2) {
 		descTf.text = str;
 		descTf.textColor = c;
 		descTf.visible = true;
@@ -124,7 +119,7 @@ class Entity {
 		pop(Lang.t.untranslated(txt), c);
 	}
 
-	public function pop(txt:mt.data.GetText.LocaleString, ?c=0xffffff) {
+	public function pop(txt:LocaleString, ?c=0xffffff) {
 		var txt = Std.string(txt);
 		var tf = new h2d.Text(Assets.font);
 		Game.ME.scroller.add(tf, Const.DP_UI);
@@ -143,10 +138,10 @@ class Entity {
 	public inline function secToFrames(v) return Game.ME.secToFrames(v);
 	public inline function rnd(min, max, ?sign) return Lib.rnd(min,max,sign);
 	public inline function irnd(min, max, ?sign) return Lib.irnd(min,max,sign);
-	public inline function rndSeconds(min, max, ?sign) return MLib.round( secToFrames( Lib.rnd(min,max,sign) ) );
+	public inline function rndSeconds(min, max, ?sign) return M.round( secToFrames( Lib.rnd(min,max,sign) ) );
 	public inline function dist(e:Entity) return Lib.distance(sprX, sprY, e.sprX, e.sprY);
 	public inline function distCase(e:Entity) return Lib.distance(cx+xr, cy+yr, e.cx+e.xr, e.cy+e.yr);
-	public inline function pretty(v:Float,?p=2) return Lib.prettyFloat(v,p);
+	public inline function pretty(v:Float,?p=2) return M.pretty(v,p);
 	public inline function is<T:Entity>( t : Class<T> ) : Bool return Std.is(this, t);
 	public inline function dirTo(e:Entity) return e.sprX<sprX ? -1 : 1;
 
@@ -183,7 +178,7 @@ class Entity {
 		focus.scaleY += (1-focus.scaleY)*0.3;
 		//focus.rotation*=0.65;
 		focus.setPosition(sprX, sprY-Const.GRID*0.5);
-		focus.alpha = 1 - MLib.fabs( 0.7*Math.cos(Game.ME.ftime*0.2) );
+		focus.alpha = 1 - M.fabs( 0.7*Math.cos(Game.ME.ftime*0.2) );
 	}
 
 	function onLand(caseHei:Float) {}
@@ -208,7 +203,7 @@ class Entity {
 		while( xr>1 ) { xr--; cx++; }
 		while( xr<0 ) { xr++; cx--; }
 		dx*=Math.pow(frict,tmod);
-		if( MLib.fabs(dx)<=0.01*tmod ) dx = 0;
+		if( M.fabs(dx)<=0.01*tmod ) dx = 0;
 
 		// Y
 		if( hasGravity && !onGround )
@@ -230,7 +225,7 @@ class Entity {
 		while( yr>1 ) { yr--; cy++; }
 		while( yr<0 ) { yr++; cy--; }
 		dy*=Math.pow(frict,tmod);
-		if( MLib.fabs(dy)<=0.01*tmod ) dy = 0;
+		if( M.fabs(dy)<=0.01*tmod ) dy = 0;
 
 		if( onGround )
 			lastStableY = cy;

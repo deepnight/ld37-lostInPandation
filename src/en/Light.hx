@@ -1,10 +1,5 @@
 package en;
 
-import mt.Process;
-import mt.MLib;
-import mt.heaps.slib.*;
-import mt.deepnight.Lib;
-import mt.heaps.Controller;
 
 class Light extends Entity {
 	var wasOff = true;

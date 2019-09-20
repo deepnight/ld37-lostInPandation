@@ -1,10 +1,5 @@
 package en.i;
 
-import mt.Process;
-import mt.MLib;
-import mt.heaps.slib.*;
-import mt.deepnight.Lib;
-import mt.heaps.Controller;
 
 class LockedPot extends en.Interactive {
 	var pot  : HSprite;

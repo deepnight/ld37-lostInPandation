@@ -1,4 +1,4 @@
-class Tutorial extends mt.Process {
+class Tutorial extends dn.Process {
 	public static var ME : Tutorial;
 	var game : Game;
 	var step : Int;
@@ -42,7 +42,7 @@ class Tutorial extends mt.Process {
 			curMsg = null;
 		}
 	}
-	function display(m:mt.data.GetText.LocaleString) {
+	function display(m:LocaleString) {
 		hide();
 		var c = 0x2E2D48;
 		var wr = new h2d.Object();
@@ -59,7 +59,7 @@ class Tutorial extends mt.Process {
 
 		var w = tf.textWidth+px*2;
 		var h = tf.textHeight+py*2;
-		bg.beginFill(mt.deepnight.Color.brightnessInt(c,-0.5));
+		bg.beginFill(dn.Color.brightnessInt(c,-0.5));
 		bg.drawRect(-1,-1,w+2,1);
 		bg.drawRect(-1,h,w+2,1);
 		bg.drawRect(-1,-1,1,h+2);

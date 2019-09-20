@@ -10,12 +10,12 @@ class Boot extends hxd.App {
 
 		hxd.Timer.wantedFPS = Const.FPS;
 		new Main(s2d);
-		mt.Process.resizeAll();
+		dn.Process.resizeAll();
 	}
 
 	override function onResize() {
 		super.onResize();
-		mt.Process.resizeAll();
+		dn.Process.resizeAll();
 	}
 
 	override function update(deltaTime:Float) {
@@ -26,9 +26,9 @@ class Boot extends hxd.App {
 		if( Game.ME!=null && Game.ME.hero!=null && @:privateAccess Game.ME.hero.controller.yDown() )
 			n+=6;
 		while( n-->0 )
-			mt.Process.updateAll(hxd.Timer.tmod);
+			dn.Process.updateAll(hxd.Timer.tmod);
 		#else
-		mt.Process.updateAll(hxd.Timer.tmod);
+		dn.Process.updateAll(hxd.Timer.tmod);
 		#end
 	}
 }

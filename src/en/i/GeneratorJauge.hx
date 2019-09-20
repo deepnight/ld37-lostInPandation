@@ -1,10 +1,5 @@
 package en.i;
 
-import mt.Process;
-import mt.MLib;
-import mt.heaps.slib.*;
-import mt.deepnight.Lib;
-import mt.heaps.Controller;
 
 class GeneratorJauge extends en.Interactive {
 	var gen : en.i.Generator;
@@ -22,7 +17,7 @@ class GeneratorJauge extends en.Interactive {
 		spr.setPosition(344,155);
 
 		if( gen.hasCharge() ) {
-			spr.scaleX = 1+MLib.fabs( Math.cos(game.ftime*0.4)*0.06 );
+			spr.scaleX = 1+M.fabs( Math.cos(game.ftime*0.4)*0.06 );
 			spr.scaleY = 1.1/spr.scaleX;
 			spr.y-=rnd(0,1);
 			//spr.y--;

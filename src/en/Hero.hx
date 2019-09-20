@@ -1,11 +1,5 @@
 package en;
 
-import mt.Process;
-import mt.MLib;
-import mt.heaps.slib.*;
-import mt.deepnight.Lib;
-import mt.heaps.Controller;
-
 class Hero extends Entity {
 	var controller : ControllerAccess;
 	var selection : Null<Interactive>;
@@ -33,7 +27,7 @@ class Hero extends Entity {
 		spr.anim.registerStateAnim("heroClimbIdle", 4, function() return climbTarget!=null);
 		spr.anim.registerStateAnim("heroJumpUp", 3, function() return !onGround && dy<0);
 		spr.anim.registerStateAnim("heroJumpDown", 3, function() return !onGround && dy>=0);
-		spr.anim.registerStateAnim("heroWalk", 2, 0.22, function() return onGround && MLib.fabs(dx)>0.05);
+		spr.anim.registerStateAnim("heroWalk", 2, 0.22, function() return onGround && M.fabs(dx)>0.05);
 		spr.anim.registerStateAnim("heroHeat", 1, 0.05, function() return cd.has("heating"));
 		spr.anim.registerStateAnim("heroIdle", 0);
 
@@ -50,7 +44,7 @@ class Hero extends Entity {
 
 		//cold = h3d.Vector.fromColor(0x113860,0.5);
 
-		//spr.colorMatrix = mt.deepnight.Color.getColorizeMatrixH2d(0x4067A2,0.7);
+		//spr.colorMatrix = dn.Color.getColorizeMatrixH2d(0x4067A2,0.7);
 	}
 
 
@@ -127,7 +121,7 @@ class Hero extends Entity {
 		}
 
 		//cold.
-		coldPow += ( MLib.fclamp((-bodyTemp+1)/3, 0, 1) - coldPow ) * 0.2;
+		coldPow += ( M.fclamp((-bodyTemp+1)/3, 0, 1) - coldPow ) * 0.2;
 		spr.colorAdd = h3d.Vector.fromColor(0x113860,coldPow);
 	}
 
@@ -182,7 +176,7 @@ class Hero extends Entity {
 
 	}
 
-	public function say(str:mt.data.GetText.LocaleString, ?c:UInt) {
+	public function say(str:LocaleString, ?c:UInt) {
 		game.message(str, c);
 		//pop(str, 0x98D3D2);
 	}
@@ -203,7 +197,7 @@ class Hero extends Entity {
 	}
 
 
-	public function die(?reason:mt.data.GetText.LocaleString, gameOver:Bool) {
+	public function die(?reason:LocaleString, gameOver:Bool) {
 		if( cd.hasSetS("death", 9999) )
 			return;
 
@@ -277,7 +271,7 @@ class Hero extends Entity {
 			idle = rndSeconds(1,2);
 
 		// Cancel idles
-		if( MLib.fabs(dx)!=0 || !onGround ) {
+		if( M.fabs(dx)!=0 || !onGround ) {
 			if( spr.anim.isPlaying("heroCheck") || spr.anim.isPlaying("heroScratch") )
 				spr.anim.stopWithStateAnims();
 		}
@@ -397,7 +391,7 @@ class Hero extends Entity {
 					heat+=0.0150;
 				default : popDebug("Unknown temp "+bodyTemp);
 			}
-			heat = MLib.fclamp(heat,0,1);
+			heat = M.fclamp(heat,0,1);
 			ui.heat.set(heat);
 			if( heat<=0 ) {
 				//Assets.SBANK.death1(1);
@@ -425,12 +419,12 @@ class Hero extends Entity {
 			fx.flashBang(0xFF0000,0.2,0.3);
 
 		if( !Console.ME.isActive() && controller.isKeyboardPressed(hxd.Key.M) ) {
-			if( mt.deepnight.Sfx.toggleMuteGroup(1) ) {
-				mt.deepnight.Sfx.muteGroup(0);
+			if( dn.heaps.Sfx.toggleMuteGroup(1) ) {
+				dn.heaps.Sfx.muteGroup(0);
 				pop(Lang.t._("Music OFF"), 0xFFFF80);
 			}
 			else {
-				mt.deepnight.Sfx.unmuteGroup(0);
+				dn.heaps.Sfx.unmuteGroup(0);
 				pop(Lang.t._("Music ON"), 0xFF4A2B);
 			}
 		}

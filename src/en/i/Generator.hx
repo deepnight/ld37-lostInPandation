@@ -1,10 +1,5 @@
 package en.i;
 
-import mt.Process;
-import mt.MLib;
-import mt.heaps.slib.*;
-import mt.deepnight.Lib;
-import mt.heaps.Controller;
 
 class Generator extends en.Interactive {
 	public var charge : Int;
@@ -54,7 +49,7 @@ class Generator extends en.Interactive {
 		else {
 			hero.say(Lang.t._("[Please insert FRUIT, BAMBOO or PLANK to refill the generator]"));
 		}
-		charge = MLib.clamp(charge,0,max);
+		charge = M.iclamp(charge,0,max);
 	}
 
 	inline function showCap() {
@@ -78,7 +73,7 @@ class Generator extends en.Interactive {
 		super.postUpdate();
 
 		if( hasCharge() ) {
-			spr.scaleX = 1+MLib.fabs( Math.cos(game.ftime*0.2)*0.05 );
+			spr.scaleX = 1+M.fabs( Math.cos(game.ftime*0.2)*0.05 );
 			spr.scaleY = 1/spr.scaleX;
 			spr.x+=rnd(0,1);
 		}

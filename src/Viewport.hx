@@ -1,7 +1,5 @@
-import mt.MLib;
-import mt.deepnight.Lib;
 
-class Viewport extends mt.Process {
+class Viewport extends dn.Process {
 	public var x : Float;
 	public var y : Float;
 	public var dx : Float;
@@ -42,7 +40,7 @@ class Viewport extends mt.Process {
 			var ty = target.sprY - 30;
 			var d = Lib.distance(tx, ty, x, y);
 			if( d>=10 ) {
-				var s = 2 * MLib.fclamp((d-10)/100, 0, 1) * (slow?0.15:1);
+				var s = 2 * M.fclamp((d-10)/100, 0, 1) * (slow?0.15:1);
 				var a = Math.atan2(ty-y, tx-x);
 				dx+=Math.cos(a)*s;
 				dy+=Math.sin(a)*s;
@@ -55,8 +53,8 @@ class Viewport extends mt.Process {
 		dx*=frict;
 		dy*=frict;
 
-		x = MLib.fclamp(x, wid*0.5, Game.ME.lMap.lData.width*Const.GRID-wid*0.5);
-		y = MLib.fclamp(y, hei*0.5, Game.ME.lMap.lData.height*Const.GRID-hei*0.5);
+		x = M.fclamp(x, wid*0.5, Game.ME.lMap.lData.width*Const.GRID-wid*0.5);
+		y = M.fclamp(y, hei*0.5, Game.ME.lMap.lData.height*Const.GRID-hei*0.5);
 
 		Game.ME.scroller.setPosition( -(x-wid*0.5), -(y-hei*0.5) );
 		//Game.ME.scroller.setPosition( Std.int( -(x-wid*0.5) ), Std.int( -(y-hei*0.5) ) );

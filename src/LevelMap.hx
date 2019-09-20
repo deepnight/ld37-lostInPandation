@@ -1,9 +1,5 @@
-import mt.Process;
-import mt.MLib;
-import mt.heaps.slib.*;
-import mt.deepnight.Lib;
 
-class LevelMap extends mt.Process {
+class LevelMap extends dn.Process {
 	public var lData : Data.Level;
 	public var id(get,never): Data.LevelKind; inline function get_id() return lData.id;
 	var tgs : Array<h2d.TileGroup>;

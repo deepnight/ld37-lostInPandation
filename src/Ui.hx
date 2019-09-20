@@ -1,9 +1,5 @@
-import mt.MLib;
-import mt.heaps.slib.*;
-import mt.deepnight.Lib;
-import mt.deepnight.Tweenie;
 
-class Ui extends mt.Process {
+class Ui extends dn.Process {
 	public var heat : Bar;
 	//public var life : Bar;
 	var flow : h2d.Flow;

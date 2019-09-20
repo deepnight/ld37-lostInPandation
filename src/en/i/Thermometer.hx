@@ -1,10 +1,5 @@
 package en.i;
 
-import mt.Process;
-import mt.MLib;
-import mt.heaps.slib.*;
-import mt.deepnight.Lib;
-import mt.heaps.Controller;
 
 class Thermometer extends en.Interactive {
 	public static var ME : Thermometer;

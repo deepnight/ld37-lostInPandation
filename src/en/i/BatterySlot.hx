@@ -1,10 +1,5 @@
 package en.i;
 
-import mt.Process;
-import mt.MLib;
-import mt.heaps.slib.*;
-import mt.deepnight.Lib;
-import mt.heaps.Controller;
 
 class BatterySlot extends en.Interactive {
 	public static var ME : BatterySlot;
@@ -100,7 +95,7 @@ class BatterySlot extends en.Interactive {
 		super.postUpdate();
 		bat.visible = running;
 		bat.setPosition(sprX-1, sprY-2);
-		bat.colorMatrix = mt.deepnight.Color.getColorizeMatrixH2d(0xFFAC00, 0.5+0.5*Math.cos(game.ftime*0.55));
+		bat.colorMatrix = dn.Color.getColorizeMatrixH2d(0xFFAC00, 0.5+0.5*Math.cos(game.ftime*0.55));
 
 		cable.setPosition(514,189);
 		wheel.setPosition(514,189);

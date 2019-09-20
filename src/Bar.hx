@@ -1,9 +1,5 @@
-import mt.MLib;
-import mt.heaps.slib.*;
-import mt.deepnight.Lib;
-import mt.deepnight.Tweenie;
 
-class Bar extends mt.Process {
+class Bar extends dn.Process {
 	var bg : HSprite;
 	var bar : HSprite;
 	var warn : HSprite;
@@ -33,6 +29,6 @@ class Bar extends mt.Process {
 
 	override public function update() {
 		super.update();
-		warn.alpha = 1 - MLib.fabs( Math.cos(ftime*0.4)*0.7 );
+		warn.alpha = 1 - M.fabs( Math.cos(ftime*0.4)*0.7 );
 	}
 }

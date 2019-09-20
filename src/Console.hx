@@ -7,7 +7,7 @@ class Console extends h2d.Console {
 		#if debug
 		h2d.Console.HIDE_LOG_TIMEOUT = 60;
 		#end
-		mt.deepnight.Lib.redirectTracesToH2dConsole(this);
+		dn.Lib.redirectTracesToH2dConsole(this);
 
 		#if debug
 		addCommand("add", "Add item", [{ name:"i", t:AString }], function(i) {

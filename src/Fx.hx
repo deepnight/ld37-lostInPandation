@@ -1,10 +1,8 @@
-import mt.heaps.HParticle;
-import mt.deepnight.Color;
-import mt.MLib;
-import mt.deepnight.Lib;
+import dn.heaps.HParticle;
+import dn.Color;
 
-class Fx extends mt.Process {
-	var pool : mt.heaps.HParticle.ParticlePool;
+class Fx extends dn.Process {
+	var pool : ParticlePool;
 	var bgSb : h2d.SpriteBatch;
 	var normalSb : h2d.SpriteBatch;
 	var mainSb : h2d.SpriteBatch;
@@ -33,7 +31,7 @@ class Fx extends mt.Process {
 		Game.ME.scroller.add(normalSb, Const.DP_MAIN_FX);
 		normalSb.hasRotationScale = true;
 
-		pool = new mt.heaps.HParticle.ParticlePool(Assets.tiles.tile, 800, Const.FPS);
+		pool = new ParticlePool(Assets.tiles.tile, 800, Const.FPS);
 	}
 
 	override public function onDispose() {
@@ -158,7 +156,7 @@ class Fx extends mt.Process {
 
 	public function camp(x:Float,y:Float, power:Int) {
 		var strong = power>=2;
-		var stormWind = Game.ME.storm ? MLib.sign(snowWind) : 0;
+		var stormWind = Game.ME.storm ? M.sign(snowWind) : 0;
 		// Flames
 		for(i in 0...(power>=3 ? 5 : power>=2 ? 2 : 1)) {
 			var p = allocMainBg("fxFire", x+rnd(0,strong?7:4,true), y-rnd(7,8));

@@ -1,11 +1,6 @@
 package en;
 
-import mt.Process;
-import mt.MLib;
-import mt.heaps.slib.*;
-import mt.deepnight.Lib;
-import mt.deepnight.Color;
-import mt.heaps.Controller;
+import dn.Color;
 
 class Mob extends Entity {
 	public static var ALL : Array<Mob> = [];
@@ -36,7 +31,7 @@ class Mob extends Entity {
 			s.setCenterRatio(0.5,0.9);
 			s.anim.unsync();
 			s.rotation = rnd(0,6.28);
-			var c = mt.deepnight.Color.hueInt(col, rnd(0,0.05,true));
+			var c = dn.Color.hueInt(col, rnd(0,0.05,true));
 			s.colorize( Color.brightnessInt(c,rnd(0,0.5)) );
 		}
 
@@ -46,7 +41,7 @@ class Mob extends Entity {
 			game.scroller.add(s, Const.DP_MAIN_FRONT);
 			cores.push( { s:s, spd:rnd(0.8,1), a:6.28*i/n + rnd(0,0.3,true), ox:rnd(0,3,true), oy:rnd(0,3,true) } );
 			s.setCenterRatio(0.5,0.5);
-			s.colorize( mt.deepnight.Color.brightnessInt( mt.deepnight.Color.hueInt(col, rnd(0,0.1,true)), i/(n-1)*0.5 ) );
+			s.colorize( dn.Color.brightnessInt( dn.Color.hueInt(col, rnd(0,0.1,true)), i/(n-1)*0.5 ) );
 		}
 
 		eyes = Assets.tiles.h_get("eyes");
@@ -90,8 +85,8 @@ class Mob extends Entity {
 			s.s.setPosition(sprX+s.ox, sprY+s.oy-7*ss);
 			s.s.rotation = ang + s.a + 0.3 * Math.sin(s.off + game.ftime*0.02 * s.spd);
 			var a = s.s.rotation;
-			var d = mt.deepnight.Lib.angularDistanceRad(3.14,a);
-			var r = MLib.fclamp(d/0.85, 0, 1);
+			var d = M.radDistance(3.14,a);
+			var r = M.fclamp(d/0.85, 0, 1);
 			s.s.setScale( (0.25+r*0.50 ) * ss );
 			i++;
 		}
@@ -142,7 +137,7 @@ class Mob extends Entity {
 			#end
 
 			// Detect hero
-			if( (dirTo(hero)==dir && MLib.fabs(hero.cx-cx)<=7 || dirTo(hero)!=dir && MLib.fabs(hero.cx-cx)<=2 ) && MLib.fabs(hero.cy-cy)<=2 && canReach(hero) ) {
+			if( (dirTo(hero)==dir && M.fabs(hero.cx-cx)<=7 || dirTo(hero)!=dir && M.fabs(hero.cx-cx)<=2 ) && M.fabs(hero.cy-cy)<=2 && canReach(hero) ) {
 				if( onGround && !isAngry() ) {
 					cd.setS("iaLock", 0.5);
 					dy = -0.5;

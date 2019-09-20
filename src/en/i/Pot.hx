@@ -1,10 +1,5 @@
 package en.i;
 
-import mt.Process;
-import mt.MLib;
-import mt.heaps.slib.*;
-import mt.deepnight.Lib;
-import mt.heaps.Controller;
 
 class Pot extends en.Interactive {
 	public var output : Null<String>;
@@ -114,7 +109,7 @@ class Pot extends en.Interactive {
 
 		if( output!=null ) {
 			size += 1 / Const.FPS / getGrowDelay();
-			size = MLib.fclamp(size,0,1);
+			size = M.fclamp(size,0,1);
 		}
 	}
 }
