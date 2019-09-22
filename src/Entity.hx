@@ -139,8 +139,8 @@ class Entity {
 	public inline function rnd(min, max, ?sign) return Lib.rnd(min,max,sign);
 	public inline function irnd(min, max, ?sign) return Lib.irnd(min,max,sign);
 	public inline function rndSeconds(min, max, ?sign) return M.round( secToFrames( Lib.rnd(min,max,sign) ) );
-	public inline function dist(e:Entity) return Lib.distance(sprX, sprY, e.sprX, e.sprY);
-	public inline function distCase(e:Entity) return Lib.distance(cx+xr, cy+yr, e.cx+e.xr, e.cy+e.yr);
+	public inline function dist(e:Entity) return M.dist(sprX, sprY, e.sprX, e.sprY);
+	public inline function distCase(e:Entity) return M.dist(cx+xr, cy+yr, e.cx+e.xr, e.cy+e.yr);
 	public inline function pretty(v:Float,?p=2) return M.pretty(v,p);
 	public inline function is<T:Entity>( t : Class<T> ) : Bool return Std.is(this, t);
 	public inline function dirTo(e:Entity) return e.sprX<sprX ? -1 : 1;

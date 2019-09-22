@@ -253,11 +253,11 @@ class Game extends dn.Process {
 			var dh = new DecisionHelper(mobSpawns);
 			dh.score( function(pt) {
 				for(e in en.Mob.ALL)
-					if( Lib.distance(pt.cx, pt.cy, e.cx, e.cy)<=10 )
+					if( M.dist(pt.cx, pt.cy, e.cx, e.cy)<=10 )
 						return 0;
 				return 1;
 			} );
-			dh.score( function(pt) return Lib.distance(pt.cx, pt.cy, hero.cx, hero.cy)<=6 ? 0 : 1 );
+			dh.score( function(pt) return M.dist(pt.cx, pt.cy, hero.cx, hero.cy)<=6 ? 0 : 1 );
 			var pt = dh.getBest();
 			new en.Mob(pt.cx, pt.cy);
 		}
@@ -329,7 +329,7 @@ class Game extends dn.Process {
 
 		messageCount++;
 		messages.push( createChildProcess( function(p) {
-			if( !perma && dn.Lib.distance(hero.cx, hero.cy, cx,cy)>=3 )
+			if( !perma && dn.M.dist(hero.cx, hero.cy, cx,cy)>=3 )
 				p.destroy();
 		}, function(p) {
 			messages.remove(p);

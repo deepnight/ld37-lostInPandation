@@ -38,7 +38,7 @@ class Viewport extends dn.Process {
 		if( tracking ) {
 			var tx = target.sprX;
 			var ty = target.sprY - 30;
-			var d = Lib.distance(tx, ty, x, y);
+			var d = M.dist(tx, ty, x, y);
 			if( d>=10 ) {
 				var s = 2 * M.fclamp((d-10)/100, 0, 1) * (slow?0.15:1);
 				var a = Math.atan2(ty-y, tx-x);
