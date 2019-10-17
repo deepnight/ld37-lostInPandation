@@ -5,6 +5,7 @@ import hxd.Key;
 class Main extends dn.Process {
 	public static var ME : Main;
 	public var controller : dn.heaps.Controller;
+	var overlay : dn.heaps.OverlayTextureFilter;
 
 	public function new(s:h2d.Scene) {
 		super();
@@ -12,8 +13,9 @@ class Main extends dn.Process {
 
 		createRoot(s);
 		root.setScale(Const.SCALE);
+		root.filter = new h2d.filter.ColorMatrix();
 
-		hxd.Res.initEmbed({compressSounds:true});
+		hxd.Res.initEmbed();
 		Lang.init("en");
 		Assets.init();
 		Data.load( hxd.Res.load("data.cdb").toText() );
@@ -28,12 +30,19 @@ class Main extends dn.Process {
 		controller.bind(B, Key.DOWN, Key.S, Key.ESCAPE);
 		controller.bind(SELECT, Key.R);
 
+		overlay = new dn.heaps.OverlayTextureFilter(Soft);
+		overlay.alpha = 0.3;
+		s.filter = overlay;
 
 		#if !debug
 		engine.fullScreen = true;
 		#end
 		delayer.addF( function() {
-			var music = new dn.heaps.Sfx( hxd.Res.music );
+			#if hl
+			var music = new dn.heaps.Sfx( hxd.Res.music_hl );
+			#else
+			var music = new dn.heaps.Sfx( hxd.Res.music_js );
+			#end
 			music.playOnGroup(1,true);
 			new Game(true);
 		},1);
@@ -46,8 +55,7 @@ class Main extends dn.Process {
 		//Const.SCALE = 2;
 		#end
 		root.setScale(Const.SCALE);
-		// buffer.width = M.ceil(w()/Const.SCALE);
-		// buffer.height = M.ceil(h()/Const.SCALE);
+		overlay.bevelSize = Std.int(Const.SCALE);
 	}
 
 	override public function update() {
