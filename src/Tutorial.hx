@@ -2,12 +2,14 @@ class Tutorial extends dn.Process {
 	public static var ME : Tutorial;
 	var game : Game;
 	var step : Int;
+	var colorAdd : h3d.Vector;
 
 	public function new() {
 		super(Game.ME);
 		ME = this;
 		step = 0;
 		game = Game.ME;
+		colorAdd = new h3d.Vector();
 	}
 
 	public inline function started() return step>0;
@@ -56,6 +58,7 @@ class Tutorial extends dn.Process {
 		tf.setPosition(px,py);
 		tf.textColor = 0xFFA600;
 		//tf.maxWidth = 440-260;
+		tf.colorAdd = colorAdd;
 
 		var w = tf.textWidth+px*2;
 		var h = tf.textHeight+py*2;
@@ -66,6 +69,7 @@ class Tutorial extends dn.Process {
 		bg.drawRect(w,-1,1,h+2);
 		bg.beginFill(c);
 		bg.drawRect(0,0,w,h);
+		bg.colorAdd = colorAdd;
 
 		bg.beginFill(0xffffff,0.08);
 		bg.drawRect(0,0,w,1);
@@ -78,4 +82,15 @@ class Tutorial extends dn.Process {
 		game.scroller.add(wr, Const.DP_UI);
 	}
 
+	override function update() {
+		super.update();
+
+		var f = 0.8;
+		colorAdd.r*=Math.pow(f,tmod);
+		colorAdd.g*=Math.pow(f,tmod);
+		colorAdd.b*=Math.pow(f,tmod);
+
+		if( !cd.hasSetS("blink",1) )
+			colorAdd.setColor(0xffcc00);
+	}
 }
