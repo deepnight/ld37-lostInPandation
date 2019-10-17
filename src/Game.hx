@@ -222,12 +222,12 @@ class Game extends dn.Process {
 
 	public function startStorm() {
 		storm = true;
-		var ladders = en.Interactive.ALL.filter( function(e) return e.is(en.i.Ladder) && Std.instance(e,en.i.Ladder).active );
+		var ladders = en.Interactive.ALL.filter( function(e) return e.is(en.i.Ladder) && Std.downcast(e,en.i.Ladder).active );
 		dn.Lib.shuffleArray(ladders, Std.random);
 
 		var n = 1;
 		for(e in ladders) {
-			var e = Std.instance(e,en.i.Ladder);
+			var e = Std.downcast(e,en.i.Ladder);
 			e.setFragile();
 			n--;
 			if( n<=0 )
@@ -268,9 +268,9 @@ class Game extends dn.Process {
 
 	public function isLastItem(id:String) {
 		for(e in Entity.ALL) {
-			if( e.is(en.i.Item) && Std.instance(e,en.i.Item).id==id )
+			if( e.is(en.i.Item) && Std.downcast(e,en.i.Item).id==id )
 				return false;
-			if( e.is(en.i.Pot) && Std.instance(e,en.i.Pot).output==id )
+			if( e.is(en.i.Pot) && Std.downcast(e,en.i.Pot).output==id )
 				return false;
 		}
 

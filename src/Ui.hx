@@ -9,7 +9,7 @@ class Ui extends dn.Process {
 		super(Game.ME);
 		createRoot(Game.ME.root);
 		flow = new h2d.Flow(root);
-		flow.isVertical = true;
+		flow.layout = Vertical;
 		flow.verticalSpacing = 2;
 
 		var row = new h2d.Flow(flow);
