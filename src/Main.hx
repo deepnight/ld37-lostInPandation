@@ -38,12 +38,7 @@ class Main extends dn.Process {
 		engine.fullScreen = true;
 		#end
 		delayer.addF( function() {
-			#if hl
-			var music = new dn.heaps.Sfx( hxd.Res.music_hl );
-			#else
-			var music = new dn.heaps.Sfx( hxd.Res.music_js );
-			#end
-			music.playOnGroup(1,true);
+			Assets.music.play(true);
 			new Game(true);
 		},1);
 	}

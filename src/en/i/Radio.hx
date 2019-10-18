@@ -11,23 +11,11 @@ class Radio extends en.Interactive {
 	override public function activate(by:en.Hero) {
 		super.activate(by);
 
-		if( dn.heaps.Sfx.toggleMuteGroup(1) ) {
-			dn.heaps.Sfx.muteGroup(0);
-			pop(Lang.t._("Music OFF"), 0xFFFF80);
-		}
-		else {
-			dn.heaps.Sfx.unmuteGroup(0);
-			pop(Lang.t._("Music ON"), 0xFF4A2B);
-		}
-
-		//if( mt.flash.Sfx.toggleMuteChannel(1) ) {
-			//mt.flash.Sfx.muteChannel(0);
-			//pop(Lang.t._("Music ON"), 0xFFFF80);
-		//}
-		//else {
-			//mt.flash.Sfx.unmuteChannel(0);
-			//pop(Lang.t._("Music OFF"), 0xFF4A2B);
-		//}
+		Assets.music.togglePlay(true);
+		if( !Assets.music.isPlaying() )
+			pop(Lang.t._("Music OFF"), 0xff3300);
+		else
+			pop(Lang.t._("Music ON"), 0xccff00);
 	}
 
 	override public function onFocus() {

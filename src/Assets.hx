@@ -7,6 +7,7 @@ class Assets {
 	public static var smallest : h2d.Font;
 	public static var bg : h2d.Tile;
 	public static var tiles : SpriteLib;
+	public static var music : Sfx;
 
 	public static function init() {
 		smallest = hxd.Res.smallest.toFont();
@@ -19,6 +20,13 @@ class Assets {
 		tiles.generateAnim("heroCheck", "0(3), 1(3), 2(40), 3(5), 4(10), 5(10), 4(20), 5(10), 4(5), 3(5), 1(5), 0(5)");
 		tiles.generateAnim("heroWalk", "0(1), 1(2), 2(1), 3(1), 4(1)");
 		tiles.generateAnim("heroDeath", "0(2), 1(2), 2(1), 3(2), 4(1), 5(2), 6(1), 7(1), 8(2)");
+
+		#if hl
+		music = new dn.heaps.Sfx( hxd.Res.music_hl );
+		#else
+		music = new dn.heaps.Sfx( hxd.Res.music_js );
+		#end
+		music.groupId = 1;
 
 		Sfx.setGroupVolume(0, 1.0);
 		Sfx.setGroupVolume(1, 0.5);

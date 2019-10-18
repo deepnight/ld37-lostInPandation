@@ -419,14 +419,11 @@ class Hero extends Entity {
 			fx.flashBang(0xFF0000,0.2,0.3);
 
 		if( !Console.ME.isActive() && controller.isKeyboardPressed(hxd.Key.M) ) {
-			if( dn.heaps.Sfx.toggleMuteGroup(1) ) {
-				dn.heaps.Sfx.muteGroup(0);
-				pop(Lang.t._("Music OFF"), 0xFFFF80);
-			}
-			else {
-				dn.heaps.Sfx.unmuteGroup(0);
-				pop(Lang.t._("Music ON"), 0xFF4A2B);
-			}
+			Assets.music.togglePlay(true);
+			if( !Assets.music.isPlaying() )
+				pop(Lang.t._("Music OFF"), 0xff3300);
+			else
+				pop(Lang.t._("Music ON"), 0xccff00);
 		}
 
 		if( !Console.ME.isActive() && controller.selectPressed() )
